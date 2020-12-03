@@ -1,0 +1,49 @@
+@import "src/assets/colors";
+
+.mobile,
+.desktop {
+    background-color: $primaryColor;
+}
+
+.mobile {
+    padding: 0.3rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    .btn {
+        color: $whiteColor;
+        font-size: 1.5rem;
+    }
+}
+
+.desktop {
+    position: sticky;
+    top: 0;
+    display: none;
+    .mat-nav-list {
+        max-width: 1900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        text-transform: uppercase;
+        a {
+            width: auto;
+            color: $whiteColor;
+        }
+    }
+}
+
+.router {
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+}
