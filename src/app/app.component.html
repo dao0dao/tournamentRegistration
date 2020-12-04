@@ -1,14 +1,40 @@
-<nav>
-    <div class="mobile">
-        <button
-            class="btn"
-            mat-button
-            [matMenuTriggerFor]="beforeMenu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <mat-menu
-            #beforeMenu="matMenu"
-            xPosition="before">
+<div class="app">
+    <nav>
+        <div class="mobile">
+            <button
+                class="btn"
+                mat-button
+                [matMenuTriggerFor]="beforeMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <mat-menu
+                #beforeMenu="matMenu"
+                xPosition="before">
+                <mat-nav-list>
+                    <a
+                        mat-list-item
+                        [routerLink]="['/']">
+                        Home
+                    </a>
+                    <a
+                        mat-list-item
+                        [routerLink]="['/register']">
+                        Rejestracja
+                    </a>
+                    <a
+                        mat-list-item
+                        [routerLink]="['/login']">
+                        Zaloguj
+                    </a>
+                    <a
+                        mat-list-item
+                        [routerLink]="['/']">
+                        Wyloguj
+                    </a>
+                </mat-nav-list>
+            </mat-menu>
+        </div>
+        <div class="desktop">
             <mat-nav-list>
                 <a
                     mat-list-item
@@ -31,37 +57,21 @@
                     Wyloguj
                 </a>
             </mat-nav-list>
-        </mat-menu>
-
-
+        </div>
+    </nav>
+    <div class="router">
+        <router-outlet></router-outlet>
     </div>
-
-
-    <div class="desktop">
-        <mat-nav-list>
+    <footer>
+        <p>
+            Created and designed with passion by
             <a
-                mat-list-item
-                [routerLink]="['/']">
-                Home
+                target="_blank"
+                href="https://dao0dao.github.io/dao/">
+                <span><</span>
+                Dao
+                <span>/></span>
             </a>
-            <a
-                mat-list-item
-                [routerLink]="['/register']">
-                Rejestracja
-            </a>
-            <a
-                mat-list-item
-                [routerLink]="['/login']">
-                Zaloguj
-            </a>
-            <a
-                mat-list-item
-                [routerLink]="['/']">
-                Wyloguj
-            </a>
-        </mat-nav-list>
-    </div>
-</nav>
-<div class="router">
-    <router-outlet></router-outlet>
+        </p>
+    </footer>
 </div>

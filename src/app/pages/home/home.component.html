@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container column flex-center">
+    <h1>I Toruński Otwarty Turniej Go</h1>
+    <h2>Zapraszamy do uczestnictwa!</h2>
+    <div class="image">
+        <img src="assets/img/go.jpg" alt="Goban image">
+    </div>
+    <div class="row flex-center">
+        <p>Zarejestrowany?</p>
+        <button
+            class="btn btn--secondary"
+            mat-raised-button
+            (click)="router.navigate(['/login'])">
+            Zaloguj się
+        </button>
+    </div>
+    <div class="row flex-center">
+        <p>Chcesz dołączyć?</p>
+        <button
+            class="btn btn--warn"
+            mat-raised-button
+            (click)="router.navigate(['/register'])">
+            Zarejestruj się
+        </button>
+    </div>
+</div>

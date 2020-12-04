@@ -1,24 +1,30 @@
 @import "src/assets/colors";
 
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.router {
+    flex-grow: 1;
+}
 .mobile,
 .desktop {
     background-color: $primaryColor;
 }
-
 .mobile {
     padding: 0.3rem;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     .btn {
         color: $whiteColor;
         font-size: 1.5rem;
     }
 }
-
 .desktop {
-    position: sticky;
-    top: 0;
     display: none;
     .mat-nav-list {
         max-width: 1900px;
@@ -30,20 +36,34 @@
         a {
             width: auto;
             color: $whiteColor;
+            &:hover {
+                color: $warnColor;
+            }
         }
     }
 }
-
 .router {
     max-width: 1900px;
     margin: 0 auto;
 }
-
 @media (min-width: 992px) {
     .mobile {
         display: none;
     }
     .desktop {
         display: block;
+    }
+}
+footer {
+    padding: 0.5rem 0;
+    background-color: $greyColor;
+    text-align: center;
+    p {
+        margin: 0;
+        color: $disableColor;
+    }
+    a {
+        color: $secondaryColor;
+        text-decoration: none;
     }
 }
