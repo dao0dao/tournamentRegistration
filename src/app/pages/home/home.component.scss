@@ -15,9 +15,6 @@
     justify-content: center;
     align-items: center;
 }
-.container {
-    margin-top: 3rem;
-}
 .image {
     position: relative;
     margin: 0 5px;
@@ -49,5 +46,5 @@
     background-color: $secondaryColor;
 }
 .btn--warn {
-    background-color: $warnColor;
+    color: $warnColor;
 }

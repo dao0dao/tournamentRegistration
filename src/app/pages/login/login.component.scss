@@ -1,0 +1,57 @@
+@import "src/assets/colors";
+
+.container {
+    position: relative;
+}
+
+mat-form-field {
+    margin: 1rem auto;
+}
+mat-icon {
+    color: $primaryColor;
+}
+.btn {
+    text-transform: uppercase;
+    &--login {
+        margin-top: 1rem;
+        background-color: $secondaryColor;
+        color: $whiteColor;
+    }
+    &--hint {
+        color: $secondaryVariantColor;
+        font-size: 0.8rem;
+    }
+}
+.hint {
+    text-align-last: center;
+    font-size: 0.8rem;
+    .text {
+        display: inline-block;
+        margin: 0 auto;
+    }
+}
+.modal {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $backgroundColor;
+    mat-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btn {
+        margin: unset;
+        font-size: 0.7rem;
+    }
+}

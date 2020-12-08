@@ -1,3 +1,4 @@
+<app-info></app-info>
 <div class="app">
     <nav>
         <div class="mobile">
@@ -5,7 +6,7 @@
                 class="btn"
                 mat-button
                 [matMenuTriggerFor]="beforeMenu">
-                <i class="fas fa-bars"></i>
+                <mat-icon>menu</mat-icon>
             </button>
             <mat-menu
                 #beforeMenu="matMenu"
@@ -24,7 +25,7 @@
                     <a
                         mat-list-item
                         [routerLink]="['/login']">
-                        Zaloguj
+                        Logowanie
                     </a>
                     <a
                         mat-list-item
@@ -49,7 +50,7 @@
                 <a
                     mat-list-item
                     [routerLink]="['/login']">
-                    Zaloguj
+                    Logowanie
                 </a>
                 <a
                     mat-list-item

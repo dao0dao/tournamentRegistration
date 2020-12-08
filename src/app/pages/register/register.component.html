@@ -1,1 +1,68 @@
-<p>register works!</p>
+<div class="container">
+    <h2>Rejestracja na turniej</h2>
+    <form
+        class="container"
+        [formGroup]="registerForm"
+        (ngSubmit)="submit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Imię</mat-label>
+            <input
+                maxlength="15"
+                #first
+                matInput
+                required
+                formControlName="firstName">
+            <mat-icon matSuffix>create</mat-icon>
+            <mat-hint align="end">{{first.value.length}}/15</mat-hint>
+            <mat-error *ngIf="firstName.errors?.required">Wymagane pole</mat-error>
+            <mat-error *ngIf="firstName.errors?.startsWithSpace">Bez spacji na początku</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Nazwisko</mat-label>
+            <input
+                maxlength="30"
+                #last
+                matInput
+                required
+                formControlName="lastName">
+            <mat-icon matSuffix>create</mat-icon>
+            <mat-hint align="end">{{last.value.length}}/30</mat-hint>
+            <mat-error *ngIf="lastName.errors?.required">Wymagane pole</mat-error>
+            <mat-error *ngIf="lastName.errors?.startsWithSpace">Bez spacji na początku</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+                type="email"
+                formControlName="email"
+                matInput
+                required>
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-error>
+                Wprowadź prawidłowy adres
+                <strong>Email</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Hasło</mat-label>
+            <input
+                minlength="6"
+                maxlength="8"
+                type="password"
+                #pass
+                matInput
+                formControlName="password"
+                required>
+            <mat-icon matSuffix>vpn_key</mat-icon>
+            <mat-hint align="end">{{pass.value.length}} / min 6, max 8</mat-hint>
+            <mat-error *ngIf="password.errors?.startsWithSpace">Bez spacji na początku</mat-error>
+            <mat-error *ngIf="password.errors?.minlength">Minimum 6 znaków</mat-error>
+        </mat-form-field>
+        <button
+            class="btn"
+            [disabled]="registerForm.invalid || btnDisabled"
+            mat-raised-button>
+            Rejestracja
+        </button>
+    </form>
+</div>

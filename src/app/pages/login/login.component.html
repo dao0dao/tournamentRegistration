@@ -1,1 +1,109 @@
-<p>login works!</p>
+<div class="container">
+    <form
+        class="container"
+        [formGroup]="logInForm"
+        (ngSubmit)="submit()">
+        <mat-form-field appearance="legacy">
+            <mat-label>Adres email</mat-label>
+            <input
+                type="email"
+                matInput
+                required
+                formControlName="email">
+            <mat-icon
+                [color]="(email.invalid && email.touched) ? 'warn' : null"
+                matSuffix>
+                alternate_email
+            </mat-icon>
+            <mat-error>
+                Wprowadź prawidłowy adres
+                <strong>Email</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>Hasło</mat-label>
+            <input
+                type="password"
+                matInput
+                required
+                formControlName="password">
+            <mat-icon
+                [color]="(password.invalid && password.touched) ? 'warn' : null"
+                matSuffix>
+                vpn_key
+            </mat-icon>
+            <mat-error>Wymagane pole</mat-error>
+        </mat-form-field>
+        <button
+            class="btn btn--login"
+            type="submit"
+            mat-raised-button
+            [disabled]="logInForm.invalid || btnDisable">
+            zaloguj
+        </button>
+    </form>
+    <div
+        class="hint"
+        *ngIf="hint.type === 'pass'">
+        <p class="text">Nie pamiętasz hasła?</p>
+        <button
+            mat-button
+            class="btn btn--hint"
+            (click)="hint.isOpen = true">
+            Zresetuj je
+        </button>
+    </div>
+    <div
+        class="hint"
+        *ngIf="hint.type === 'verify'">
+        <p class="text">Nie otrzymano linka aktywacyjnego?</p>
+        <button
+            mat-button
+            class="btn btn--hint"
+            (click)="hint.isOpen = true">
+            Wyślij go
+        </button>
+    </div>
+
+    <div
+        class="modal"
+        @hint
+        *ngIf="hint.isOpen">
+        <form
+            [formGroup]="hintForm"
+            (ngSubmit)="hintSubmit()">
+            <mat-card>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Adres email</mat-label>
+                    <input
+                        type="email"
+                        matInput
+                        required
+                        formControlName="hintEmail">
+                    <mat-icon [color]="hintForm.invalid && hintEmail.touched" matSuffix>alternate_email</mat-icon>
+                    <mat-error>
+                        Wprowadź prawidłowy adres
+                        <strong>Email</strong>
+                    </mat-error>
+                </mat-form-field>
+                <div class="buttons">
+                    <button
+                        type="button"
+                        mat-button
+                        class="btn btn--hint"
+                        [disabled]="hintBtnDisable"
+                        (click)="hint.isOpen = false; hintForm.reset()">
+                        Anuluj
+                    </button>
+                    <button
+                        type="submit"
+                        mat-raised-button
+                        [disabled]="hintForm.invalid || hintBtnDisable"
+                        class="btn btn--login">
+                        Wyślij
+                    </button>
+                </div>
+            </mat-card>
+        </form>
+    </div>
+</div>
