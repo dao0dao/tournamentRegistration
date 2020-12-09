@@ -89,3 +89,8 @@ export interface NewUser {
     email: string,
     status: 'pending' | 'registered' | 'deleted'
 }
+
+export interface Token {
+    idToken: string,
+    expiresIn : string
+  }

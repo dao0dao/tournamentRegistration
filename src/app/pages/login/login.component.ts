@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { animate, style, transition, trigger } from '@angular/animations';
+
 import { MyValidators } from 'src/app/validators/myValidators';
 import { FbErrors, FbLogIn, FbResetPassword, FbResLogin, FbResUserData } from 'src/interface/interface';
 import { ApiLoginService } from 'src/app/services/apiLogin.service'
 import { InfoService } from 'src/app/services/info.service';
-import { animate, style, transition, trigger } from '@angular/animations';
+import { AuthorizationService } from 'src/app/services/authorization.service';
+import { Token } from 'src/interface/interface'
 
 interface Hint {
   isOpen: boolean,
@@ -32,9 +35,9 @@ export class LoginComponent implements OnInit {
   }
   hintForm: FormGroup
   hintBtnDisable: boolean = false
-  idToken = {
-    idToken: ''
-  }
+
+  token: Token
+
   get email() {
     return this.logInForm.get('email')
   }
@@ -78,17 +81,18 @@ export class LoginComponent implements OnInit {
     this.infoService.toggler(true, message)
   }
 
-  checkVerification(idToken: string) {
-    this.idToken = {
-      idToken
+  checkVerification(idToken: string, expiresIn: string) {
+    this.token = {
+      idToken,
+      expiresIn
     }
-    this.apiLoginService.sendEmailVerified(this.idToken).subscribe(
+    this.apiLoginService.sendEmailVerified({ idToken }).subscribe(
       (res: FbResUserData) => {
         if (res.users[0].emailVerified === false) {
           this.infoService.toggler(true, 'Proszę potwierdzić adres email.')
           this.hint.type = 'verify'
         } else if (res.users[0].emailVerified === true) {
- 
+          this.authService.login(this.token)
         } else {
           this.handleError(null)
         }
@@ -112,7 +116,7 @@ export class LoginComponent implements OnInit {
     }
     this.apiLoginService.login(login).subscribe(
       (res: FbResLogin) => {
-        this.checkVerification(res.idToken)
+        this.checkVerification(res.idToken, res.expiresIn)
       },
       (res: FbErrors) => {
         this.logInForm.reset()
@@ -146,7 +150,7 @@ export class LoginComponent implements OnInit {
         }
       )
     } else if (this.hint.type === 'verify') {
-      this.apiLoginService.sendEmailVerified(this.idToken).subscribe(
+      this.apiLoginService.sendEmailVerified({ idToken: this.token.idToken }).subscribe(
         () => {
           this.hint.isOpen = false
           this.hintBtnDisable = false
@@ -164,7 +168,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, private apiLoginService: ApiLoginService, private infoService: InfoService) { }
+  constructor(private fb: FormBuilder, private apiLoginService: ApiLoginService, private infoService: InfoService, private authService: AuthorizationService) { }
 
   ngOnInit() {
     this.logInForm = this.fb.group({
@@ -176,5 +180,4 @@ export class LoginComponent implements OnInit {
       hintEmail: ['', [Validators.email, MyValidators.required]]
     })
   }
-
 }

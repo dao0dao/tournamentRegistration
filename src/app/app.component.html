@@ -29,7 +29,7 @@
                     </a>
                     <a
                         mat-list-item
-                        [routerLink]="['/']">
+                        (click)="autService.logout()">
                         Wyloguj
                     </a>
                 </mat-nav-list>
@@ -54,7 +54,7 @@
                 </a>
                 <a
                     mat-list-item
-                    [routerLink]="['/']">
+                    (click)="autService.logout()">
                     Wyloguj
                 </a>
             </mat-nav-list>
