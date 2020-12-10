@@ -18,6 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { InfoComponent } from './components/info/info.component';
+import { ProfileModule} from './profile/profile.module'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { InfoComponent } from './components/info/info.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]
