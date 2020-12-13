@@ -15,7 +15,8 @@ export class AuthorizationService {
       localStorage.setItem('idToken', `${token.idToken}`)
       localStorage.setItem('expiresIn', expiresIn)
     } else {
-      localStorage.clear()
+      localStorage.removeItem('idToken')
+      localStorage.removeItem('expiresIn')
     }
   }
 

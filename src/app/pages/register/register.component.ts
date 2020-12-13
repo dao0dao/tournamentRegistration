@@ -53,9 +53,8 @@ export class RegisterComponent implements OnInit {
       (res: SignUp) => {
         this.apiRegisterService.sendEmailVerify(res).subscribe(
           () => {
-            localStorage.setItem('newUser', 'true')
-            localStorage.setItem('fistName', this.firstName.value)
-            localStorage.setItem('lastName', this.lastName.value)
+            localStorage.setItem('fistName', this.firstName.value.trim())
+            localStorage.setItem('lastName', this.lastName.value.trim())
             this.infoService.toggler(true, 'Wysłano link aktywacyjny na podany adres email')
             this.btnDisabled = false
             this.registerForm.reset()

@@ -5,13 +5,21 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { IsLoggedGuard} from './guards/isLogged.guard'
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' }
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent, canActivate:[IsLoggedGuard] },
+  { path: 'profile/update', component: UpdateProfileComponent, canActivate:[IsLoggedGuard] },
+  
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: '/error' }
 ];
 
 @NgModule({

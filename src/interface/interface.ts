@@ -67,6 +67,10 @@ export interface FbResetPassword {
     email: string
 }
 
+export interface FbResPost {
+    name : string
+}
+
 export interface FbErrors {
     error: {
         error: {
@@ -92,5 +96,15 @@ export interface NewUser {
 
 export interface Token {
     idToken: string,
-    expiresIn : string
-  }
+    expiresIn: string
+}
+
+export interface User {
+    id?: string,
+    localId: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phone: number,
+    status: 'pending' | 'confirmed',
+}

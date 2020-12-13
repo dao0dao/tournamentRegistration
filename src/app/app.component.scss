@@ -34,8 +34,11 @@
         align-items: center;
         text-transform: uppercase;
         a {
-            width: auto;
             color: $whiteColor;
+            width: auto;
+            &.active{
+                color: $warnColor
+            }
             &:hover {
                 color: $warnColor;
             }

@@ -13,21 +13,36 @@
                 xPosition="before">
                 <mat-nav-list>
                     <a
+                        routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact : true}"
                         mat-list-item
                         [routerLink]="['/']">
                         Home
                     </a>
                     <a
-                        mat-list-item
-                        [routerLink]="['/register']">
-                        Rejestracja
-                    </a>
-                    <a
+                        *ngIf="!autService.token"
+                        routerLinkActive="active"
                         mat-list-item
                         [routerLink]="['/login']">
                         Logowanie
                     </a>
                     <a
+                        *ngIf="!autService.token"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/register']">
+                        Rejestracja
+                    </a>
+                    <a
+                        *ngIf="autService.token"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/profile']">
+                        Profil
+                    </a>
+                    <a
+                        *ngIf="autService.token"
+                        routerLinkActive="active"
                         mat-list-item
                         (click)="autService.logout()">
                         Wyloguj
@@ -38,21 +53,36 @@
         <div class="desktop">
             <mat-nav-list>
                 <a
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact : true}"
                     mat-list-item
                     [routerLink]="['/']">
                     Home
                 </a>
                 <a
-                    mat-list-item
-                    [routerLink]="['/register']">
-                    Rejestracja
-                </a>
-                <a
+                    *ngIf="!autService.token"
+                    routerLinkActive="active"
                     mat-list-item
                     [routerLink]="['/login']">
                     Logowanie
                 </a>
                 <a
+                    *ngIf="!autService.token"
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/register']">
+                    Rejestracja
+                </a>
+                <a
+                    *ngIf="autService.token"
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/profile']">
+                    Profil
+                </a>
+                <a
+                    *ngIf="autService.token"
+                    routerLinkActive="active"
                     mat-list-item
                     (click)="autService.logout()">
                     Wyloguj
