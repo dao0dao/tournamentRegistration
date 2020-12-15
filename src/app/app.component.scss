@@ -23,6 +23,9 @@
         color: $whiteColor;
         font-size: 1.5rem;
     }
+    .active {
+        color: $warnColor;
+    }
 }
 .desktop {
     display: none;
@@ -36,8 +39,8 @@
         a {
             color: $whiteColor;
             width: auto;
-            &.active{
-                color: $warnColor
+            &.active {
+                color: $warnColor;
             }
             &:hover {
                 color: $warnColor;

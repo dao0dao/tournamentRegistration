@@ -1,0 +1,25 @@
+@import 'src/assets/colors';
+
+.form {
+    align-items: stretch;
+}
+.input--number::-webkit-outer-spin-button,
+.input--number::-webkit-inner-spin-button,
+.input--number {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+mat-form-field{
+    margin-top: 0.5rem;
+}
+.btn {
+    margin-top: 1.5rem;
+    &--submit{
+        color: $whiteColor;
+        background-color: $primaryVariantColor;
+    }
+    &--cancle{
+        color: $warnColor;
+    }
+}

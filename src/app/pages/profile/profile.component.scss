@@ -1,0 +1,26 @@
+@import "src/assets/colors";
+
+.actions {
+    align-items: stretch;
+    .btn {
+        margin: 1rem 0;
+        color: $whiteColor;
+        &--regist {
+            background-color: $primaryVariantColor;
+        }
+        &--result {
+            background-color: $secondaryColor;
+        }
+        &--update {
+            color: $secondaryVariantColor;
+        }
+        &--delete {
+            color: $warnColor;
+        }
+    }
+}
+
+.spiner{
+    margin-top: 3rem;
+    align-items: center;
+}

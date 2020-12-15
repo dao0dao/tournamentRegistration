@@ -1,0 +1,38 @@
+<div
+    *ngIf="!user"
+    class="spiner container">
+    <mat-spinner></mat-spinner>
+</div>
+<div
+    *ngIf="user"
+    class="container">
+    <h2>Witamy</h2>
+    <p>{{user?.firstName}} {{user?.lastName}}</p>
+    <p>Tel: {{user?.phone}}</p>
+    <p>Email: {{user?.email}}</p>
+    <p>Status zgłoszenia: {{user?.status}}</p>
+    <div class="actions container">
+        <button
+            class="btn btn--regist"
+            mat-raised-button>
+            Wyślij zgłoszenie
+        </button>
+        <button
+            class="btn btn--result"
+            mat-raised-button>
+            Wyniki
+        </button>
+        <button
+            class="btn btn--update"
+            mat-button
+            (click)="router.navigate(['/profile/update'])">
+            Edytuj dane
+        </button>
+        <button
+            class="btn btn--delete"
+            mat-button
+            color="warn">
+            Usuń konto
+        </button>
+    </div>
+</div>

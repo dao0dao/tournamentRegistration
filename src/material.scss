@@ -1,0 +1,36 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$primary: mat-palette($mat-teal, 800);
+$primary-variant: mat-palette($mat-teal, A400);
+$secondary: mat-palette($mat-light-blue, 400);
+$secondary-variant: mat-palette($mat-light-blue, 200);
+$background: mat-palette($mat-grey, A200);
+$surface: mat-palette($mat-grey, A200);
+$error: mat-palette($mat-pink, 400);
+$on-primary: mat-palette($mat-grey, A900);
+$on-secondary: mat-palette($mat-grey, A900);
+$on-background: mat-palette($mat-grey, A900);
+$on-surface: mat-palette($mat-grey, A900);
+$on-error: mat-palette($mat-grey, A200);
+
+$my-light-theme: mat-light-theme(
+    (
+        color: (
+            primary: $primary,
+            primaryVariant: $primary-variant,
+            accent: $secondary,
+            secondaryVariant: $secondary-variant,
+            background: $background,
+            surface: $surface,
+            warn: $error,
+            error: $error,
+            onPrimary: $on-primary,
+            onSecondary: $on-secondary,
+            onSurface: $on-surface,
+            onError: $on-error,
+        ),
+    )
+);
+
+@include angular-material-theme($my-light-theme);
