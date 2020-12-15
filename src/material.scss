@@ -2,9 +2,9 @@
 @include mat-core();
 
 $primary: mat-palette($mat-teal, 800);
-$primary-variant: mat-palette($mat-teal, A400);
-$secondary: mat-palette($mat-light-blue, 400);
-$secondary-variant: mat-palette($mat-light-blue, 200);
+$primary-variant: mat-palette($mat-teal, 400);
+$secondary: mat-palette($mat-light-green, 700);
+$secondary-variant: mat-palette($mat-light-green, 500);
 $background: mat-palette($mat-grey, A200);
 $surface: mat-palette($mat-grey, A200);
 $error: mat-palette($mat-pink, 400);
@@ -19,7 +19,7 @@ $my-light-theme: mat-light-theme(
         color: (
             primary: $primary,
             primaryVariant: $primary-variant,
-            accent: $secondary,
+            accent: $secondary-variant,
             secondaryVariant: $secondary-variant,
             background: $background,
             surface: $surface,

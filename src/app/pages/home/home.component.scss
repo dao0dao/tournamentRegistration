@@ -35,16 +35,13 @@
         filter: blur(1px);
     }
 }
-.image + .row{
+.image + .row {
     margin-top: 3rem;
 }
 .btn {
     margin: 0 0.5rem;
     color: $whiteColor;
 }
-.btn--secondary {
-    background-color: $secondaryColor;
-}
-.btn--warn {
-    color: $warnColor;
+.btn--registr {
+    color: $secondaryVariantColor;
 }

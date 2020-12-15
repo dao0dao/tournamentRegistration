@@ -2,6 +2,12 @@
 <div class="app">
     <nav>
         <div class="mobile">
+            <p
+                @title
+                *ngIf="showTitle"
+                class="title">
+                I Toruński Otwarty Turniej GO
+            </p>
             <button
                 class="btn"
                 mat-button
@@ -51,6 +57,12 @@
             </mat-menu>
         </div>
         <div class="desktop">
+            <p
+                @title
+                *ngIf="showTitle"
+                class="title">
+                I Toruński Otwarty Turniej GO
+            </p>
             <mat-nav-list>
                 <a
                     routerLinkActive="active"

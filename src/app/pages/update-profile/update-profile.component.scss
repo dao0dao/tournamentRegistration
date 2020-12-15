@@ -17,9 +17,9 @@ mat-form-field{
     margin-top: 1.5rem;
     &--submit{
         color: $whiteColor;
-        background-color: $primaryVariantColor;
+        background-color: $primaryColor;
     }
     &--cancle{
-        color: $warnColor;
+        color: $secondaryColor;
     }
 }

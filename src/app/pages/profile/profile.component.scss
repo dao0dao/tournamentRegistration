@@ -6,16 +6,16 @@
         margin: 1rem 0;
         color: $whiteColor;
         &--regist {
-            background-color: $primaryVariantColor;
-        }
-        &--result {
             background-color: $secondaryColor;
         }
+        &--result {
+            background-color: $secondaryVariantColor;
+        }
         &--update {
-            color: $secondaryVariantColor;
+            color: $primaryColor;
         }
         &--delete {
-            color: $warnColor;
+            color: $primaryVariantColor;
         }
     }
 }

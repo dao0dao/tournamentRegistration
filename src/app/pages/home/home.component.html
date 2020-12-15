@@ -7,8 +7,9 @@
     <div class="row flex-center">
         <p>Zarejestrowany?</p>
         <button
-            class="btn btn--secondary"
+            class="btn btn--login"
             mat-raised-button
+            color="primary"
             (click)="router.navigate(['/login'])">
             Zaloguj się
         </button>
@@ -16,7 +17,7 @@
     <div class="row flex-center">
         <p>Chcesz dołączyć?</p>
         <button
-            class="btn btn--warn"
+            class="btn btn--registr"
             mat-button
             (click)="router.navigate(['/register'])">
             Zarejestruj się
