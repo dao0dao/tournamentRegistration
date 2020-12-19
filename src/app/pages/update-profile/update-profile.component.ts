@@ -59,6 +59,8 @@ export class UpdateProfileComponent implements OnInit {
         }, () => { },
         () => {
           this.userForm.reset()
+          localStorage.removeItem('firstName')
+          localStorage.removeItem('lastItem')
           this.router.navigate(['/profile'])
         }
       )
@@ -106,7 +108,7 @@ export class UpdateProfileComponent implements OnInit {
               this.firstName.setValue(localStorage.getItem('firstName'))
               this.lastName.setValue(localStorage.getItem('lastName'))
               this.email.setValue(res.users[0].email)
-              this.status.setValue('pending')
+              this.status.setValue('unregistered')
               this.userForm.updateValueAndValidity()
               localStorage.removeItem('firstName')
               localStorage.removeItem('lastName')

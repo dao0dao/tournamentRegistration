@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Token } from 'src/interface/interface';
 import * as moment from 'moment'
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,19 @@ export class AuthorizationService {
     }
   }
 
+  private setUid(uid: string | null) {
+    if (uid) {
+      localStorage.setItem('uid', uid)
+    } else {
+      localStorage.removeItem('uid')
+    }
+  }
+
   get token(): string {
     const expiresIn = localStorage.getItem('expiresIn')
-    if (new Date().toString() > expiresIn) {
+    let time = moment(expiresIn).format('YYYY/MM/DD HH:mm').toString()
+    let now = moment(new Date()).format('YYYY/MM/DD HH:mm').toString()
+    if (now > time) {
       this.logout()
       return null
     } else {
@@ -30,13 +41,24 @@ export class AuthorizationService {
     }
   }
 
+  get uid(): string {
+    let uid = localStorage.getItem('uid')
+    if (uid) { return uid } else { return null }
+  }
+
   login(token: Token) {
     this.setToken(token)
     this.router.navigate(['/profile'])
   }
 
+  loginAdmin(token: Token) {
+    this.setToken(token)
+    this.setUid(environment.adminUid)
+    this.router.navigate(['/admin'])
+  }
+
   logout() {
-    this.setToken(null)
+    localStorage.clear()
     this.router.navigate(['/'])
   }
 

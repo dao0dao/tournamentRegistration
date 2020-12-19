@@ -14,7 +14,9 @@
     <div class="actions container">
         <button
             class="btn btn--regist"
-            mat-raised-button>
+            mat-raised-button
+            [disabled]="(user.status !== 'unregistered')"
+            (click)="sendRequest()">
             Wyślij zgłoszenie
         </button>
         <button
@@ -29,10 +31,32 @@
             Edytuj dane
         </button>
         <button
-            class="btn btn--delete"
             mat-button
-            color="warn">
+            color="warn"
+            (click)="isOpenModal = true">
             Usuń konto
         </button>
     </div>
+</div>
+<div
+    @modal
+    *ngIf="isOpenModal"
+    class="modal container">
+    <mat-card>
+        <mat-card-title>Czy na pewno chcesz usunąć konto?</mat-card-title>
+        <mat-card-actions>
+            <button
+                mat-button
+                color="warn"
+                (click)="deleteUser()">
+                Tak
+            </button>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="isOpenModal = false">
+                Nie
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>

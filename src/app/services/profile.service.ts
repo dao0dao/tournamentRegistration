@@ -34,17 +34,26 @@ export class ProfileService {
   postUser(user: User): Observable<any> {
     let newUser: User = Object.assign({}, user)
     return this.http.post<FbResPost>(`${environment.fbUrlDatabase}tournament/users.json`, newUser).pipe(
-      map(res => { 
+      map(res => {
         newUser.id = res.name
-        console.log(newUser);
         return this.patch(newUser).subscribe()
-       })
+      })
     )
   }
 
-  patch(user: User): Observable<FbResPost> {
-    return this.http.patch<FbResPost>(`${environment.fbUrlDatabase}tournament/users/${user.id}.json`, user)
+  patch(user: User): Observable<User> {
+    return this.http.patch<User>(`${environment.fbUrlDatabase}tournament/users/${user.id}.json`, user)
   }
+
+  deleteUser(user: User, idToken: string): Observable<any> {
+    return this.http.delete(`${environment.fbUrlDatabase}tournament/users/${user.id}.json`).pipe(
+      map(() => {
+        this.http.post<any>(`${environment.fbUrlDeleteUser}${environment.apiKey}`, { 'idToken': idToken }).subscribe()
+      })
+    )
+  }
+
+
 
   constructor(private http: HttpClient) { }
 }

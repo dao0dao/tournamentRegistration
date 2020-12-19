@@ -10,7 +10,6 @@ import { InfoService } from './info.service';
 export class AuthInterceptService implements HttpInterceptor {
 
   private handleError() {
-
     this.authService.logout()
   }
 

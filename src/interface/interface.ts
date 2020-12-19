@@ -7,7 +7,9 @@ export interface Environment {
     fbUrlLogIn: string,
     fbUrlGetUserData: string,
     fbUrlDatabase: string,
-    fbUrlResetPassword: string
+    fbUrlResetPassword: string,
+    fbUrlDeleteUser: string,
+    adminUid: string
 }
 
 export interface FbRegister {
@@ -68,7 +70,7 @@ export interface FbResetPassword {
 }
 
 export interface FbResPost {
-    name : string
+    name: string
 }
 
 export interface FbErrors {
@@ -91,7 +93,7 @@ export interface NewUser {
     firstName: string,
     lastName: string,
     email: string,
-    status: 'pending' | 'registered' | 'deleted'
+    status: 'pending' | 'registered' | 'deleted' | 'unregistered'
 }
 
 export interface Token {
@@ -106,5 +108,11 @@ export interface User {
     lastName: string,
     email: string,
     phone: number,
-    status: 'pending' | 'confirmed',
+    status: 'registered' | 'pending' | 'confirmed' | 'unregistered',
+}
+
+export interface Player {
+    firstName: string,
+    lastName: string,
+    place?: number,
 }

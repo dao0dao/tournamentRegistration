@@ -40,11 +40,18 @@
                         Rejestracja
                     </a>
                     <a
-                        *ngIf="autService.token"
+                        *ngIf="autService.token && !autService.uid"
                         routerLinkActive="active"
                         mat-list-item
                         [routerLink]="['/profile']">
                         Profil
+                    </a>
+                    <a
+                        *ngIf="autService.token && autService.uid"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/admin']">
+                        Panel sterowania
                     </a>
                     <a
                         *ngIf="autService.token"
@@ -86,11 +93,18 @@
                     Rejestracja
                 </a>
                 <a
-                    *ngIf="autService.token"
+                    *ngIf="autService.token && !autService.uid"
                     routerLinkActive="active"
                     mat-list-item
                     [routerLink]="['/profile']">
                     Profil
+                </a>
+                <a
+                    *ngIf="autService.token && autService.uid"
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/admin']">
+                    Panel sterowania
                 </a>
                 <a
                     *ngIf="autService.token"

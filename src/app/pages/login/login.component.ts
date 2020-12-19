@@ -8,6 +8,7 @@ import { ApiLoginService } from 'src/app/services/apiLogin.service'
 import { InfoService } from 'src/app/services/info.service';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { Token } from 'src/interface/interface'
+import { environment } from 'src/environments/environment';
 
 interface Hint {
   isOpen: boolean,
@@ -91,9 +92,12 @@ export class LoginComponent implements OnInit {
         if (res.users[0].emailVerified === false) {
           this.infoService.toggler(true, 'Proszę potwierdzić adres email.')
           this.hint.type = 'verify'
-        } else if (res.users[0].emailVerified === true) {
+        } else if (res.users[0].emailVerified === true && res.users[0].localId !== environment.adminUid) {
           this.authService.login(this.token)
-        } else {
+        } else if (res.users[0].emailVerified === true && res.users[0].localId === environment.adminUid) {
+          this.authService.loginAdmin(this.token)
+        }
+        else {
           this.handleError(null)
         }
         this.btnDisable = false
@@ -122,6 +126,8 @@ export class LoginComponent implements OnInit {
         this.logInForm.reset()
         const { message } = res.error.error
         this.handleError(message)
+        this.btnDisable = false
+      }, () => {
         this.btnDisable = false
       }
     )

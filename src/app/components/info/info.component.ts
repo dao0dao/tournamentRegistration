@@ -9,8 +9,8 @@ import { InfoService } from 'src/app/services/info.service';
   styleUrls: ['./info.component.scss'],
   animations: [
     trigger('info', [
-      transition('void => *', animate(200, style({ opacity: 1 }))),
-      transition('* => void', animate(200, style({ opacity: 0 }))),
+      transition('void => *', [style({ opacity: 0 }), animate('200ms ease-in')]),
+      transition('* => void', [animate('200ms ease-out', style({ opacity: 0 }))])
     ])
   ]
 })

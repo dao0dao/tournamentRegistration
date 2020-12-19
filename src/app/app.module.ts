@@ -23,6 +23,7 @@ import { ErrorComponent } from './pages/error/error.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { AuthInterceptService } from './services/authIntercept.service';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 const INTERCEPT_PROVIDER: Provider = {
@@ -40,7 +41,8 @@ const INTERCEPT_PROVIDER: Provider = {
     InfoComponent,
     ProfileComponent,
     UpdateProfileComponent,
-    ErrorComponent
+    ErrorComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

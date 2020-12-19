@@ -5,7 +5,7 @@
     .btn {
         margin: 1rem 0;
         color: $whiteColor;
-        &--regist {
+        &--regist:not([disabled]) {
             background-color: $secondaryColor;
         }
         &--result {
@@ -14,13 +14,26 @@
         &--update {
             color: $primaryColor;
         }
-        &--delete {
-            color: $primaryVariantColor;
-        }
     }
 }
 
-.spiner{
+.spiner {
     margin-top: 3rem;
     align-items: center;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    background-color: $backgroundColor;
+}
+mat-card-title {
+    font-size: 1rem;
+}
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
 }

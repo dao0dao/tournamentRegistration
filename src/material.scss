@@ -3,16 +3,8 @@
 
 $primary: mat-palette($mat-teal, 800);
 $primary-variant: mat-palette($mat-teal, 400);
-$secondary: mat-palette($mat-light-green, 700);
 $secondary-variant: mat-palette($mat-light-green, 500);
-$background: mat-palette($mat-grey, A200);
-$surface: mat-palette($mat-grey, A200);
 $error: mat-palette($mat-pink, 400);
-$on-primary: mat-palette($mat-grey, A900);
-$on-secondary: mat-palette($mat-grey, A900);
-$on-background: mat-palette($mat-grey, A900);
-$on-surface: mat-palette($mat-grey, A900);
-$on-error: mat-palette($mat-grey, A200);
 
 $my-light-theme: mat-light-theme(
     (
@@ -20,15 +12,7 @@ $my-light-theme: mat-light-theme(
             primary: $primary,
             primaryVariant: $primary-variant,
             accent: $secondary-variant,
-            secondaryVariant: $secondary-variant,
-            background: $background,
-            surface: $surface,
-            warn: $error,
-            error: $error,
-            onPrimary: $on-primary,
-            onSecondary: $on-secondary,
-            onSurface: $on-surface,
-            onError: $on-error,
+            warn: $error,     
         ),
     )
 );

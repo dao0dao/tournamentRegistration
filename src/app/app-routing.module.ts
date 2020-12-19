@@ -8,16 +8,19 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { IsLoggedGuard} from './guards/isLogged.guard'
+import { IsLoggedGuard } from './guards/isLogged.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { AdminComponent } from './pages/admin/admin.component';
+import { NotAdminGuard } from './guards/not-admin.guard'
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent, canActivate:[IsLoggedGuard] },
-  { path: 'profile/update', component: UpdateProfileComponent, canActivate:[IsLoggedGuard] },
-  
+  { path: 'profile', component: ProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
+  { path: 'profile/update', component: UpdateProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard, IsLoggedGuard] },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: '/error' }
 ];

@@ -12,6 +12,9 @@
     margin: 0 auto;
     flex-grow: 1;
 }
+nav {
+    background-color: $primaryColor;
+}
 .active {
     color: $secondaryColor;
 }
@@ -19,7 +22,6 @@
 .desktop {
     justify-content: space-between;
     align-items: center;
-    background-color: $primaryColor;
     .title {
         margin: 0 0 0 0.5rem;
         padding-top: 0.5rem;
@@ -38,8 +40,9 @@
 }
 .desktop {
     display: none;
+    max-width: 1900px;
+    margin: 0 auto;
     .mat-nav-list {
-        max-width: 1900px;
         margin-left: auto;
         display: flex;
         justify-content: flex-end;

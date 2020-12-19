@@ -7,6 +7,7 @@ import { ApiRegisterService } from 'src/app/services/apiRegister.service'
 import { Router } from '@angular/router';
 import { InfoService } from 'src/app/services/info.service'
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -53,11 +54,12 @@ export class RegisterComponent implements OnInit {
       (res: SignUp) => {
         this.apiRegisterService.sendEmailVerify(res).subscribe(
           () => {
-            localStorage.setItem('fistName', this.firstName.value.trim())
+            localStorage.setItem('firstName', this.firstName.value.trim())
             localStorage.setItem('lastName', this.lastName.value.trim())
             this.infoService.toggler(true, 'Wysłano link aktywacyjny na podany adres email')
             this.btnDisabled = false
             this.registerForm.reset()
+            this.router.navigate(['/login'])
           },
           (err: FbErrors) => {
             const { message } = err.error.error
