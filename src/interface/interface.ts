@@ -89,13 +89,6 @@ export interface FbErrors {
     }
 }
 
-export interface NewUser {
-    firstName: string,
-    lastName: string,
-    email: string,
-    status: 'pending' | 'registered' | 'deleted' | 'unregistered'
-}
-
 export interface Token {
     idToken: string,
     expiresIn: string
@@ -108,7 +101,7 @@ export interface User {
     lastName: string,
     email: string,
     phone: number,
-    status: 'registered' | 'pending' | 'confirmed' | 'unregistered',
+    status: 'registered' | 'pending' |  'unregistered',
 }
 
 export interface Player {
