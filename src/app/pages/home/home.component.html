@@ -4,7 +4,7 @@
     <div class="image">
         <img src="assets/img/go.jpg" alt="Goban image">
     </div>
-    <div class="row flex-center">
+    <div class="row flex-center" *ngIf="!authService.isAuth()">
         <p>Zarejestrowany?</p>
         <button
             class="btn btn--login"
@@ -14,7 +14,7 @@
             Zaloguj się
         </button>
     </div>
-    <div class="row flex-center">
+    <div class="row flex-center" *ngIf="!authService.isAuth()">
         <p>Chcesz dołączyć?</p>
         <button
             class="btn btn--registr"

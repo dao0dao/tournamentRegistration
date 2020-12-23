@@ -14,7 +14,26 @@ export class ProfileService {
     return this.http.post<FbResUserData>(`${environment.fbUrlGetUserData}${environment.apiKey}`, { 'idToken': idToken })
   }
 
-  getUser(localId: string): Observable<User | null> {
+  getRegisteredUser(): Observable<User[] | undefined> {
+    return this.http.get(`${environment.fbUrlDatabase}tournament/users.json`).pipe(
+      map(
+        (res: { [key: string]: User }) => {
+          if (res) {
+            return Object.keys(res).map(
+              key => {
+                if (res[key].status !== 'unregistered') {
+                  let user: User
+                  return user = res[key]
+                }
+              }
+            )
+          }
+        }
+      )
+    )
+  }
+
+  getUser(localId: string): Observable<User | undefined> {
     let user: User
     return this.http.get(`${environment.fbUrlDatabase}tournament/users.json`).pipe(
       map((res: { [key: string]: User }) => {

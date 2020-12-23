@@ -1,6 +1,11 @@
 @import "src/assets/colors";
 
+.container--user{
+    min-width: 300px;
+}
+
 .actions {
+    width: 100%;
     align-items: stretch;
     .btn {
         margin: 1rem 0;
@@ -13,6 +18,9 @@
         }
         &--update {
             color: $primaryColor;
+        }
+        &--lenght{
+            width: 100%;
         }
     }
 }

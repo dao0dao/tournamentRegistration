@@ -5,22 +5,29 @@
 </div>
 <div
     *ngIf="user"
-    class="container">
+    class="container container--user">
     <h2>Witamy</h2>
     <p>{{user?.firstName}} {{user?.lastName}}</p>
     <p>Tel: {{user?.phone}}</p>
     <p>Email: {{user?.email}}</p>
-    <p>Status zgłoszenia: {{user?.status}}</p>
+    <p>
+        Status zgłoszenia: {{user?.status | status}}
+    </p>
     <div class="actions container">
         <button
-            class="btn btn--regist"
+            class="btn btn--regist btn--lenght"
             mat-raised-button
             [disabled]="(user.status !== 'unregistered')"
             (click)="sendRequest()">
             Wyślij zgłoszenie
         </button>
         <button
-            class="btn btn--result"
+            mat-raised-button
+            class="btn--lenght">
+            Lista graczy
+        </button>
+        <button
+            class="btn btn--result btn--lenght"
             mat-raised-button>
             Wyniki
         </button>
@@ -33,6 +40,7 @@
         <button
             mat-button
             color="warn"
+            [disabled]="user.status !== 'unregister'"
             (click)="isOpenModal = true">
             Usuń konto
         </button>

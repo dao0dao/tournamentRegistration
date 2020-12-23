@@ -1,1 +1,26 @@
-<p>admin works!</p>
+<div class="container">
+    <h2>Panel admina</h2>
+    <div class="links">
+        <a
+            [routerLink]="['/admin/players']"
+            routerLinkActive="active">
+            Gracze
+        </a>
+        <a
+            [routerLink]="['/admin/competitors']"
+            routerLinkActive="active">
+            Zawodnicy
+        </a>
+        <a
+            [routerLink]="['/admin/contest']"
+            routerLinkActive="active">
+            Rozgrywki
+        </a>
+        <a
+            [routerLink]="['/admin/scoreboard']"
+            routerLinkActive="active">
+            Wyniki
+        </a>
+    </div>
+    <router-outlet></router-outlet>
+</div>

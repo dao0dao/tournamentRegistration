@@ -105,6 +105,8 @@ export interface User {
 }
 
 export interface Player {
+    id?: string,
+    localId : string,
     firstName: string,
     lastName: string,
     place?: number,

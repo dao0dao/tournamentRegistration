@@ -1,0 +1,18 @@
+@import "src/assets/colors";
+.links a {
+    display: inline-block;
+    margin: 0 0.2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: $whiteColor;
+    background-color: $greyColor;
+    transition: 0.25s ease-in-out;
+    &:hover {
+        background-color: $primaryVariantColor;
+    }
+    &.active {
+        background-color: $secondaryColor;
+        cursor: default;
+    }
+}

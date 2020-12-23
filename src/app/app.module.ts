@@ -1,18 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Provider } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -23,7 +13,10 @@ import { ErrorComponent } from './pages/error/error.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { AuthInterceptService } from './services/authIntercept.service';
-import { AdminComponent } from './pages/admin/admin.component';
+
+import { AdminModule } from './pages/admin/admin.module'
+import { PipesModule } from './pipes/pipes.module'
+import { SharedModule } from './sharedModules/shared.module'
 
 
 const INTERCEPT_PROVIDER: Provider = {
@@ -42,23 +35,15 @@ const INTERCEPT_PROVIDER: Provider = {
     ProfileComponent,
     UpdateProfileComponent,
     ErrorComponent,
-    AdminComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatListModule,
-    MatMenuModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    HttpClientModule,
+    SharedModule,
+    AdminModule,
+    PipesModule
   ],
   providers: [INTERCEPT_PROVIDER],
   bootstrap: [AppComponent]
