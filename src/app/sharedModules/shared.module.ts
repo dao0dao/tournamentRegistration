@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from 'src/app/components/matPaginator/customMatPaginator';
-
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
     imports: [
@@ -29,6 +29,7 @@ import { CustomMatPaginatorIntl } from 'src/app/components/matPaginator/customMa
         MatCardModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
+        MatRadioModule,
     ],
     exports: [
         FormsModule,
@@ -43,11 +44,12 @@ import { CustomMatPaginatorIntl } from 'src/app/components/matPaginator/customMa
         MatCardModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
+        MatRadioModule,
     ],
     providers: [
         {
-         provide: MatPaginatorIntl,
-         useClass: CustomMatPaginatorIntl
+            provide: MatPaginatorIntl,
+            useClass: CustomMatPaginatorIntl
         }
     ]
 })

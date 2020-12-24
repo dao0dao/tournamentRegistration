@@ -11,7 +11,7 @@ export class SortUsersPipe implements PipeTransform {
       let users: User[] = []
       for (let i = index; i < index + length; i++) {
         if (i < value.length) {
-          users.push(value[index])
+          users.push(value[i])
         }
       }
       return users

@@ -101,12 +101,12 @@ export interface User {
     lastName: string,
     email: string,
     phone: number,
-    status: 'registered' | 'pending' |  'unregistered',
+    status: 'registered' | 'pending' | 'unregistered',
 }
 
 export interface Player {
     id?: string,
-    localId : string,
+    localId: string,
     firstName: string,
     lastName: string,
     place?: number,

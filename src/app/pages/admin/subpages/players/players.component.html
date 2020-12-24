@@ -4,10 +4,22 @@
     <mat-paginator
         length="{{users.length}}"
         pageSize="{{usersLength}}"
-        [pageSizeOptions]="[1, 2, 3]"
+        [pageSizeOptions]="[1, 2, 3,5,10]"
         color="accent"
         (page)="paginatorChange($event)">
     </mat-paginator>
+
+    <label>Pokaż graczy:</label>
+    <mat-radio-group [(ngModel)]="sortUser">
+        <mat-radio-button
+            checked="true"
+            value="0">
+            Wszyscy
+        </mat-radio-button>
+        <mat-radio-button value="1">Oczekujący</mat-radio-button>
+        <mat-radio-button value="2">Zarejestrowani</mat-radio-button>
+    </mat-radio-group>
+
     <div class="users">
         <div
             class="margin"

@@ -1,5 +1,6 @@
 import { Component, OnInit, DoCheck, EventEmitter } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { MatRadioChange } from '@angular/material/radio';
 
 import { PlayersService } from 'src/app/services/players.service'
 import { ProfileService } from 'src/app/services/profile.service';
@@ -13,11 +14,13 @@ import { Player, User } from 'src/interface/interface';
 })
 export class PlayersComponent implements OnInit, DoCheck {
 
+  originUsers: User[] = []
   users: User[] = []
   btnDisabled: boolean = false
 
   usersIndex: number = 0
   usersLength: number = 1
+  sortUser: string = '0'
 
   paginatorChange(page: PageEvent) {
     this.usersIndex = page.pageIndex * page.pageSize
@@ -63,14 +66,23 @@ export class PlayersComponent implements OnInit, DoCheck {
     this.profileService.getRegisteredUser().subscribe(
       (users) => {
         if (users[0] !== undefined) {
-          this.users = users
+          this.originUsers = users
         }
       }
     )
   }
   ngDoCheck() {
-    if (this.users) {
-      this.users = this.users.filter(user => user.status !== 'unregistered')
+    if (this.originUsers) {
+      this.users = this.originUsers.filter(user => user.status !== 'unregistered');
+      this.users = this.originUsers.filter(user => {
+        if (this.sortUser === '0') {
+          return user
+        } else if (this.sortUser === '1') {
+          return user.status === 'pending'
+        } else if (this.sortUser === '2') {
+          return user.status === 'registered'
+        }
+      });
     }
   }
 }

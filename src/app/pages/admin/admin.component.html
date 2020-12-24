@@ -2,14 +2,14 @@
     <h2>Panel admina</h2>
     <div class="links">
         <a
+            [routerLink]="['/admin/register']"
+            routerLinkActive="active">
+            Rejestracja
+        </a>
+        <a
             [routerLink]="['/admin/players']"
             routerLinkActive="active">
             Gracze
-        </a>
-        <a
-            [routerLink]="['/admin/competitors']"
-            routerLinkActive="active">
-            Zawodnicy
         </a>
         <a
             [routerLink]="['/admin/contest']"

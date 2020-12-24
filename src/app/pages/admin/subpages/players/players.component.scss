@@ -1,5 +1,7 @@
 @import "src/assets/colors";
-
+mat-radio-button{
+  margin-right: 0.4rem;
+}
 .users {
   width: 100%;
   max-width: 1200px;
@@ -9,6 +11,7 @@
   justify-content: center;
 }
 .margin {
+  height: 284px;
   padding: 1rem;
   overflow: hidden;
 }

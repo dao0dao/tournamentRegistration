@@ -21,8 +21,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module'
         RouterModule.forChild([
             {
                 path: '', component: AdminComponent, children: [
-                    { path: '', redirectTo: '/admin/players', pathMatch: 'full' },
-                    { path: 'players', component: PlayersComponent }
+                    { path: '', redirectTo: '/admin/register', pathMatch: 'full' },
+                    { path: 'register', component: PlayersComponent }
                 ]
             }
         ])
