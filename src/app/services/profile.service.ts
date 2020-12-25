@@ -15,19 +15,20 @@ export class ProfileService {
   }
 
   getRegisteredUser(): Observable<User[] | undefined> {
+    let users: User[] = []
     return this.http.get(`${environment.fbUrlDatabase}tournament/users.json`).pipe(
       map(
         (res: { [key: string]: User }) => {
           if (res) {
-            return Object.keys(res).map(
+            Object.keys(res).map(
               key => {
                 if (res[key].status !== 'unregistered') {
-                  let user: User
-                  return user = res[key]
+                  users.push(res[key])
                 }
               }
             )
           }
+          return users
         }
       )
     )
@@ -59,6 +60,7 @@ export class ProfileService {
       })
     )
   }
+
 
   patch(user: User): Observable<User> {
     return this.http.patch<User>(`${environment.fbUrlDatabase}tournament/users/${user.id}.json`, user)

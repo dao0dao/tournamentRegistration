@@ -1,0 +1,32 @@
+@import "src/assets/colors";
+mat-radio-button{
+  margin-right: 0.4rem;
+}
+.users {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 380px));
+  grid-gap: 20px;
+  justify-content: center;
+}
+.margin {
+  height: 284px;
+  padding: 1rem;
+  overflow: hidden;
+}
+mat-card-actions {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  width: 100%;
+  max-width: 250px;
+  &--accept:not([disabled]) {
+    color: $whiteColor;
+    background-color: $primaryVariantColor;
+  }
+}

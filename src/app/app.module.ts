@@ -16,7 +16,7 @@ import { AuthInterceptService } from './services/authIntercept.service';
 
 import { AdminModule } from './pages/admin/admin.module'
 import { PipesModule } from './pipes/pipes.module'
-import { SharedModule } from './sharedModules/shared.module'
+import { SharedModule } from './sharedModules/shared.module';
 
 
 const INTERCEPT_PROVIDER: Provider = {

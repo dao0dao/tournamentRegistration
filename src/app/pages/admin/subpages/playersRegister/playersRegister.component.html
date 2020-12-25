@@ -1,0 +1,58 @@
+<div class="container spiner" *ngIf="!originUsers">
+    <mat-spinner></mat-spinner>
+</div>
+<div
+    class="container"
+    *ngIf="users">
+    <mat-paginator
+        length="{{users.length}}"
+        pageSize="{{usersLength}}"
+        [pageSizeOptions]="[1, 2, 3,5,10]"
+        color="accent"
+        (page)="paginatorChange($event)">
+    </mat-paginator>
+    <label>Pokaż graczy:</label>
+    <mat-radio-group [(ngModel)]="sortUser">
+        <mat-radio-button
+            checked="true"
+            value="0">
+            Wszyscy
+        </mat-radio-button>
+        <mat-radio-button value="1">Oczekujący</mat-radio-button>
+        <mat-radio-button value="2">Zarejestrowani</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="users">
+        <div
+            class="margin"
+            *ngFor="let user of users | sortUsers : usersIndex : usersLength; let index = index">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-subtitle>Nazwisko i imię</mat-card-subtitle>
+                    <mat-card-title>{{user.lastName}} {{user.firstName}}</mat-card-title>
+                    <mat-card-subtitle>Status: {{user.status | status}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Email: {{user.email}}</p>
+                    <p>Tel: {{user.phone}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button
+                        mat-button
+                        class="btn btn--accept"
+                        [disabled]="user.status === 'registered' || btnDisabled[index]"
+                        (click)="register(user, index)">
+                        Potwierdź
+                    </button>
+                    <button
+                        mat-button
+                        color="warn"
+                        [disabled]="btnDisabled[index]"
+                        (click)="unregister(user, index)">
+                        Odrzuć
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
