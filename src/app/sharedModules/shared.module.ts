@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptService } from 'src/app/services/authIntercept.service';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -12,10 +13,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
-import { CustomMatPaginatorIntl } from 'src/app/components/matPaginator/customMatPaginator';
+import { CustomMatPaginatorIntl } from 'src/app/components/matDirectives/matDirectives';
 import { MatRadioModule } from '@angular/material/radio';
 
+import { GridComponent } from 'src/app/components/grid/grid.component'
+
+const INTERCEPT_PROVIDER: Provider = {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptService,
+    multi: true
+}
+
 @NgModule({
+    declarations: [
+        GridComponent
+    ],
     imports: [
         FormsModule,
         ReactiveFormsModule,
@@ -45,12 +57,14 @@ import { MatRadioModule } from '@angular/material/radio';
         MatProgressSpinnerModule,
         MatPaginatorModule,
         MatRadioModule,
+        GridComponent,
     ],
     providers: [
         {
             provide: MatPaginatorIntl,
             useClass: CustomMatPaginatorIntl
-        }
+        },
+        INTERCEPT_PROVIDER
     ]
 })
 

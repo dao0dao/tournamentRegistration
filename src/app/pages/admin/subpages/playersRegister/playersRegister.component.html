@@ -47,7 +47,7 @@
                     <button
                         mat-button
                         color="warn"
-                        [disabled]="btnDisabled[index]"
+                        [disabled]="btnDisabled[index] || activeTournament"
                         (click)="unregister(user, index)">
                         Odrzuć
                     </button>

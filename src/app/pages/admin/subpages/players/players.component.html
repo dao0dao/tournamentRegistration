@@ -1,3 +1,35 @@
-<div class="container">
-    <p>players works!</p>
+<div
+    class="spiner container"
+    *ngIf="!players">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="container" *ngIf="players">
+    <div class="action">
+        <button
+            class="btn"
+            mat-raised-button
+            [disabled]="active"
+            (click)="startTournament()">
+            Rozpocznij turniej
+        </button>
+    </div>
+    <mat-list>
+        <mat-list-item *ngFor="let player of players; let index = index">
+            <div
+                class="number"
+                mat-line>
+                #{{index +1}}
+            </div>
+            <div
+                class="text name"
+                mat-line>
+                {{player.firstName | shortName}} {{player.lastName | shortLast}}
+            </div>
+            <div
+                class="text"
+                mat-line>
+                Miejsce: {{player.place |toNumber}}, Liczba punktów: {{player.points |toNumber}}
+            </div>
+        </mat-list-item>
+    </mat-list>
 </div>

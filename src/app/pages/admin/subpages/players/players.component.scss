@@ -1,0 +1,22 @@
+@import "src/assets/colors";
+.btn:not([disabled]){
+    color: $whiteColor;
+    background-color: $primaryVariantColor;
+}
+mat-list-item {
+    min-width: 300px;
+    position: relative;
+    border-bottom: 1px solid $greyColor;
+}
+.number {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.mat-line.name {
+    font-weight: 900;
+}
+.text {
+    position: relative;
+    left: 1.5rem;
+}

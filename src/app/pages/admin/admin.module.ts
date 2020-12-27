@@ -7,7 +7,8 @@ import { PlayersRegisterComponent } from './subpages/playersRegister/playersRegi
 
 import { SharedModule } from 'src/app/sharedModules/shared.module'
 import { PipesModule } from 'src/app/pipes/pipes.module';
-import { PlayersComponent } from './subpages/players/players.component'
+import { PlayersComponent } from './subpages/players/players.component';
+import { TournamentComponent } from './subpages/tournament/tournament.component'
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PlayersComponent } from './subpages/players/players.component'
         AdminComponent,
         PlayersRegisterComponent,
         PlayersComponent,
+        TournamentComponent,
     ],
     imports: [
         CommonModule,
@@ -25,7 +27,8 @@ import { PlayersComponent } from './subpages/players/players.component'
                 path: '', component: AdminComponent, children: [
                     { path: '', redirectTo: '/admin/players_register', pathMatch: 'full' },
                     { path: 'players_register', component: PlayersRegisterComponent },
-                    { path: 'players', component: PlayersComponent }
+                    { path: 'players', component: PlayersComponent },
+                    {path : 'tournament', component: TournamentComponent}
                 ]
             }
         ])

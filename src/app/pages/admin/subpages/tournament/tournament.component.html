@@ -1,0 +1,84 @@
+<div
+    class="container"
+    *ngIf="contestants">
+    <div
+        class="round"
+        *ngIf="round === 16">
+        <app-grid
+            [playerOne]="getContestant(16, 1)"
+            [playerTwo]="getContestant(16, 2)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 3)"
+            [playerTwo]="getContestant(16, 4)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 5)"
+            [playerTwo]="getContestant(16, 6)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 7)"
+            [playerTwo]="getContestant(16, 8)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 9)"
+            [playerTwo]="getContestant(16, 10)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 11)"
+            [playerTwo]="getContestant(16, 12)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 13)"
+            [playerTwo]="getContestant(16, 14)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(16, 15)"
+            [playerTwo]="getContestant(16, 16)"
+            (winner)="winner($event)"></app-grid>
+    </div>
+    <div
+        class="round"
+        *ngIf="round === 8">
+        <app-grid
+            [playerOne]="getContestant(8, 1)"
+            [playerTwo]="getContestant(8, 2)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(8, 3)"
+            [playerTwo]="getContestant(8, 4)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(8, 5)"
+            [playerTwo]="getContestant(8, 6)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(8, 7)"
+            [playerTwo]="getContestant(8, 8)"
+            (winner)="winner($event)"></app-grid>
+    </div>
+    <div
+        class="round"
+        *ngIf="round === 4">
+        <app-grid
+            [playerOne]="getContestant(4, 1)"
+            [playerTwo]="getContestant(4, 2)"
+            (winner)="winner($event)"></app-grid>
+        <app-grid
+            [playerOne]="getContestant(4, 3)"
+            [playerTwo]="getContestant(4, 4)"
+            (winner)="winner($event)"></app-grid>
+    </div>
+    <div class="round">
+        <app-grid
+            [playerOne]="getContestant(2, 1)"
+            [playerTwo]="getContestant(2, 2)"
+            (cancel)="cancelWin($event)"
+            (winner)="winner($event)"></app-grid>
+    </div>
+    <div class="round">
+        <p class="winner">
+            Zwycięzca: {{getContestant(1,1)?.firstName}} {{getContestant(1,1)?.lastName}}
+        </p>
+    </div>
+</div>

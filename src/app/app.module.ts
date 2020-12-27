@@ -35,6 +35,7 @@ const INTERCEPT_PROVIDER: Provider = {
     ProfileComponent,
     UpdateProfileComponent,
     ErrorComponent,
+    
 
   ],
   imports: [
@@ -45,7 +46,8 @@ const INTERCEPT_PROVIDER: Provider = {
     AdminModule,
     PipesModule
   ],
-  providers: [INTERCEPT_PROVIDER],
+  exports: [],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

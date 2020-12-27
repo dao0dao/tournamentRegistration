@@ -109,5 +109,10 @@ export interface Player {
     localId: string,
     firstName: string,
     lastName: string,
+    points?: number,
     place?: number,
+    round?: number,
+    position?: number,
+    isPlayed?: boolean,
+    canCancel? : boolean
 }

@@ -18,6 +18,7 @@ export class PlayersRegisterComponent implements OnInit, DoCheck {
   originUsers: User[]
   users: User[]
   btnDisabled: boolean[] = []
+  activeTournament: boolean = false
 
   usersIndex: number = 0
   usersLength: number = 10
@@ -76,6 +77,12 @@ export class PlayersRegisterComponent implements OnInit, DoCheck {
   constructor(private playersService: PlayersService, private profileService: ProfileService) { }
 
   ngOnInit() {
+    this.playersService.isTournament().subscribe(
+      (res: Array<{ [key: string]: boolean }>) => {
+        this.activeTournament = res.reduce(el => { return el }).active
+      }
+    )
+
     this.profileService.getRegisteredUser().subscribe(
       (users) => {
         if (users[0] !== undefined || users.length > 1) {

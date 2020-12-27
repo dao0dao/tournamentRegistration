@@ -1,3 +1,4 @@
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Injectable } from '@angular/core';
 import { MatPaginatorIntl } from '@angular/material/paginator'
 
@@ -7,7 +8,7 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     previousPageLabel: string = null;
     itemsPerPageLabel: string = 'Graczy na stronę';
 
-    getRangeLabel = function (page: number, pageSize : number, length: number) {
+    getRangeLabel = function (page: number, pageSize: number, length: number) {
         if (length === 0 || pageSize === 0) {
             return '0 z ' + length;
         }

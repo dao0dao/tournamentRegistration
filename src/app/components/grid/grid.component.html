@@ -1,0 +1,46 @@
+<div class="versus container">
+    <div class="flex player player--one">
+        <mat-form-field class="input">
+            <input
+                matInput
+                readonly
+                [value]="playerOne? playerOne.firstName + ' ' + playerOne.lastName : ''">
+            <button
+                [disabled]="playerOne ? (!playerOne.canCancel) : true"
+                mat-button
+                matSuffix
+                mat-icon-button
+                (click)="cancelWin(playerOne)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button
+            [disabled]="!playerOne || playerOne.isPlayed"
+            mat-mini-fab
+            (click)="result(playerOne, playerTwo)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+    <div class="flex player player--two">
+        <mat-form-field class="input">
+            <input
+                matInput
+                readonly
+                [value]="playerTwo ? playerTwo.firstName + ' ' + playerTwo.lastName : ''">
+            <button
+                mat-button
+                matSuffix
+                mat-icon-button
+                [disabled]="playerTwo ? (!playerTwo.canCancel) : true"
+                (click)="cancelWin(playerTwo)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button
+            mat-mini-fab
+            [disabled]="!playerTwo || playerTwo.isPlayed"
+            (click)="result(playerTwo, playerOne)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+</div>
