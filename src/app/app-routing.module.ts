@@ -11,6 +11,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { IsLoggedGuard } from './guards/isLogged.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { NotAdminGuard } from './guards/not-admin.guard'
+import { ScoreboardComponent } from './pages/scoreboard/scoreboard.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
   { path: 'profile/update', component: UpdateProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
+  { path: 'scoreboard', component: ScoreboardComponent, canActivate: [IsLoggedGuard] },
   { path: 'admin', loadChildren: './pages/admin/admin.module#AdminModule', canActivate: [AdminGuard, IsLoggedGuard] },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: '/error' }

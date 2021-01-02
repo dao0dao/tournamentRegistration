@@ -133,41 +133,39 @@ export class TournamentComponent implements OnInit, DoCheck {
   }
 
   constructor(private tournamentService: TournamentService, private infoService: InfoService, private playerService: PlayersService, private profileService: ProfileService) { }
+  ngOnInit() {
 
-  async loadOnInit() {
-    await this.profileService.getRegisteredUser().subscribe(
+    this.profileService.getRegisteredUser().subscribe(
       (users) => {
         this.registerUsers = users.filter(user => user.status === 'registered')
       }
     )
-    await this.playerService.getContestants().subscribe(
+    this.playerService.getContestants().subscribe(
       res => {
         this.registerPlayers = res
         this.setRounds(res.length)
-      }
-    )
-    await this.tournamentService.isTournament().subscribe(
-      (res) => {
-        if (res && this.registerUsers.length > 0) {
-          if (res && res.active === true) {
-            this.activeTournament = res.active
-            this.contestants = res.contestants
-          } else if (res && res.active === false) {
-            this.fillPlayers()
-          } else {
-            this.activeTournament = false
-            this.fillPlayers()
+
+        this.tournamentService.isTournament().subscribe(
+          (res) => {
+            if (res && this.registerUsers.length > 0) {
+              if (res && res.active === true) {
+                this.activeTournament = res.active
+                this.contestants = res.contestants
+              } else if (res && res.active === false) {
+                this.fillPlayers()
+              } else {
+                this.activeTournament = false
+                this.fillPlayers()
+              }
+            } else {
+              this.noPlayers = true
+            }
           }
-        } else {
-          this.noPlayers = true
-        }
+        )
       }
     )
   }
 
-  ngOnInit() {
-    this.loadOnInit()
-  }
   ngDoCheck() {
   }
 

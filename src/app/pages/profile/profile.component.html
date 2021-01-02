@@ -26,10 +26,13 @@
             class="btn--lenght">
             Lista graczy
         </button>
+    </div>
+    <div class="actions actions--secondary container">
         <button
             class="btn btn--result btn--lenght"
-            mat-raised-button>
-            Wyniki
+            mat-button
+            (click)="router.navigate(['/scoreboard'])">
+            Wyniki turniejów
         </button>
         <button
             class="btn btn--update"

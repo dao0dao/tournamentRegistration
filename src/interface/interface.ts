@@ -117,12 +117,14 @@ export interface Player {
 }
 
 export interface Contestant {
-    firstName : string,
-    lastName : string,
-    points : number
+    firstName: string,
+    lastName: string,
+    points: number
 }
 
 export interface TournamentResult {
+    index?: number,
+    expand?: boolean,
     date: String,
     contestants: Contestant[]
 }

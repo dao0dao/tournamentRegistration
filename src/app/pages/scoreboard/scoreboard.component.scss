@@ -1,0 +1,21 @@
+.tour {
+    margin: 1rem 0.5rem;
+}
+mat-card-content{
+    overflow-y: auto;
+}
+.content_header {
+    margin: 0;
+}
+.player {
+    margin: 0.5rem auto;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    p {
+        margin: 0;
+    }
+}

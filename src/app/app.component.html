@@ -47,6 +47,13 @@
                         Profil
                     </a>
                     <a
+                        *ngIf="autService.token"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/scoreboard']">
+                        Wyniki
+                    </a>
+                    <a
                         *ngIf="autService.token && autService.uid"
                         routerLinkActive="active"
                         mat-list-item
@@ -99,6 +106,13 @@
                     [routerLink]="['/profile']">
                     Profil
                 </a>
+                <a
+                        *ngIf="autService.token"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/scoreboard']">
+                        Wyniki
+                    </a>
                 <a
                     *ngIf="autService.token && autService.uid"
                     routerLinkActive="active"

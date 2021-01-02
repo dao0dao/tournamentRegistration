@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Wyniki turniejów</h2>
+    <div class="results">
+        <div
+            class="tour"
+            *ngFor="let tour of results">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-title>Turniej nr: {{tour.index + 1}}</mat-card-title>
+                        <mat-card-subtitle>Zakończony: {{tour.date}}</mat-card-subtitle>
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content [@content]="tour.expand">
+                    <p class="content_header">Miejsce</p>
+                    <mat-list>
+                        <mat-list-item
+                            class="player"
+                            *ngFor="let player of tour.contestants; let index=index">
+                            <div mat-list-icon>{{index+1}}</div>
+                            <div class="text">
+                                <p>
+                                    {{player.firstName}} {{player.lastName}}
+                                </p>
+                                <p>Punkty: {{player.points}}</p>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button
+                        mat-button
+                        color="accent"
+                        (click)="tour.expand = !tour.expand">
+                        {{tour.expand ? 'Ukryj wyniki' : 'Pokaż wyniki'}}
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

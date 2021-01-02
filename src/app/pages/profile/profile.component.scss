@@ -1,20 +1,20 @@
 @import "src/assets/colors";
 
-.container--user{
+.container--user {
     min-width: 300px;
 }
 
 .actions {
     align-items: stretch;
     .btn {
-        margin: 1rem 0;
+        margin: 0.5rem 0;
         color: $whiteColor;
         min-width: 200px;
         &--regist:not([disabled]) {
             background-color: $secondaryColor;
         }
         &--result {
-            background-color: $secondaryVariantColor;
+            color: $secondaryVariantColor;
         }
         &--update {
             color: $primaryColor;
