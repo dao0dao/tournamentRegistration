@@ -51,21 +51,6 @@ export class PlayersService {
         })
     )
   }
-  startTournament(): Observable<any> {
-    return this.http.post(`${environment.fbUrlDatabase}tournament/competition.json`, { active: true })
-  }
-
-  isTournament(): Observable<any> {
-    return this.http.get(`${environment.fbUrlDatabase}tournament/competition.json`).pipe(
-      map(
-        (res: { [key: string]: boolean }) => {
-          return Object.keys(res).map(key => {
-            return res[key]
-          })
-        }
-      )
-    )
-  }
 
   constructor(private http: HttpClient) { }
 }

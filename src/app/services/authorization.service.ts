@@ -12,7 +12,7 @@ export class AuthorizationService {
 
   private setToken(token: Token | null) {
     if (token) {
-      let expiresIn = moment(new Date()).add(token.expiresIn, 's').toString()
+      let expiresIn = moment().add(token.expiresIn, 's').format('YYYY-MM-DD HH:mm').toString()
       localStorage.setItem('idToken', `${token.idToken}`)
       localStorage.setItem('expiresIn', expiresIn)
     } else {
@@ -31,8 +31,8 @@ export class AuthorizationService {
 
   get token(): string {
     const expiresIn = localStorage.getItem('expiresIn')
-    let time = moment(expiresIn).format('YYYY/MM/DD HH:mm').toString()
-    let now = moment(new Date()).format('YYYY/MM/DD HH:mm').toString()
+    let time = moment(expiresIn).format('YYYY-MM-DD HH:mm').toString()
+    let now = moment(new Date()).format('YYYY-MM-DD HH:mm').toString()
     if (now > time) {
       this.logout()
       return null

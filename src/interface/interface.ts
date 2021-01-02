@@ -110,9 +110,19 @@ export interface Player {
     firstName: string,
     lastName: string,
     points?: number,
-    place?: number,
     round?: number,
     position?: number,
     isPlayed?: boolean,
-    canCancel? : boolean
+    canCancel?: boolean
+}
+
+export interface Contestant {
+    firstName : string,
+    lastName : string,
+    points : number
+}
+
+export interface TournamentResult {
+    date: String,
+    contestants: Contestant[]
 }

@@ -1,8 +1,36 @@
+@import "src/assets/colors";
+
 .container {
     margin-bottom: 1rem;
+}
+.actions {
+    .btn {
+        margin: auto 1rem;
+        &--random:not([disabled]) {
+            color: $primaryVariantColor;
+        }
+        &--start:not([disabled]) {
+            color: $primaryColor;
+        }
+        &--stop:not([disabled]) {
+            color: $secondaryVariantColor;
+        }
+    }
+}
+.ladder {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
+    .round_title {
+        margin: 1rem 0 0;
+        text-align: center;
+        span{
+            color: $warnColor;
+        }
+    }
 }
 .round {
     display: flex;

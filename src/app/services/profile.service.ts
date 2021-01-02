@@ -10,6 +10,8 @@ import { FbResPost, FbResUserData, User } from 'src/interface/interface';
 })
 export class ProfileService {
 
+  
+
   getUserData(idToken: string): Observable<FbResUserData> {
     return this.http.post<FbResUserData>(`${environment.fbUrlGetUserData}${environment.apiKey}`, { 'idToken': idToken })
   }

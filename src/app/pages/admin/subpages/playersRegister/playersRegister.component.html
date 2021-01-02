@@ -1,10 +1,26 @@
-<div class="container spiner" *ngIf="!originUsers">
+<div
+    @maxUsers
+    class="container maxUsers"
+    *ngIf="maxPlayers">
+    <h3>
+        Osiągniętą maksymalną liczbę graczy - 16.
+    </h3>
+</div>
+<div
+    class="container spiner"
+    *ngIf="!originUsers && !noUsers">
     <mat-spinner></mat-spinner>
+</div>
+<div
+    class="container spiner"
+    *ngIf="noUsers">
+    <h2>Brak graczy</h2>
 </div>
 <div
     class="container"
     *ngIf="users">
     <mat-paginator
+        class="paginator"
         length="{{users.length}}"
         pageSize="{{usersLength}}"
         [pageSizeOptions]="[1, 2, 3,5,10]"
@@ -12,7 +28,9 @@
         (page)="paginatorChange($event)">
     </mat-paginator>
     <label>Pokaż graczy:</label>
-    <mat-radio-group [(ngModel)]="sortUser">
+    <mat-radio-group
+        class="options"
+        [(ngModel)]="sortUser">
         <mat-radio-button
             checked="true"
             value="0">
@@ -23,10 +41,8 @@
     </mat-radio-group>
 
     <div class="users">
-        <div
-            class="margin"
-            *ngFor="let user of users | sortUsers : usersIndex : usersLength; let index = index">
-            <mat-card>
+        <div *ngFor="let user of users | sortUsers : usersIndex : usersLength; let index = index">
+            <mat-card class="user">
                 <mat-card-header>
                     <mat-card-subtitle>Nazwisko i imię</mat-card-subtitle>
                     <mat-card-title>{{user.lastName}} {{user.firstName}}</mat-card-title>
@@ -40,15 +56,17 @@
                     <button
                         mat-button
                         class="btn btn--accept"
-                        [disabled]="user.status === 'registered' || btnDisabled[index]"
-                        (click)="register(user, index)">
+                        [disabled]="(user.status === 'registered' || btnDisabled[index]) || maxPlayers"
+                        (click)="register(user, index)"
+                        [title]="activeTournament ? 'Trwa turniej!' : ''">
                         Potwierdź
                     </button>
                     <button
                         mat-button
                         color="warn"
                         [disabled]="btnDisabled[index] || activeTournament"
-                        (click)="unregister(user, index)">
+                        (click)="unregister(user, index)"
+                        [title]="activeTournament ? 'Trwa turniej!':''">
                         Odrzuć
                     </button>
                 </mat-card-actions>

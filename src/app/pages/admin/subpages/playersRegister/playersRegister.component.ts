@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit, DoCheck, EventEmitter } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { map } from 'rxjs/operators';
@@ -5,12 +6,19 @@ import { map } from 'rxjs/operators';
 
 import { PlayersService } from 'src/app/services/players.service'
 import { ProfileService } from 'src/app/services/profile.service';
+import { TournamentService } from 'src/app/services/tournament.service';
 import { Player, User } from 'src/interface/interface';
 
 @Component({
   selector: 'app-players',
   templateUrl: './playersRegister.component.html',
   styleUrls: ['./playersRegister.component.scss'],
+  animations: [
+    trigger('maxUsers', [
+      transition('void => *', [style({ opacity: 0 }), animate('200ms ease-in')]),
+      transition('* => void', [animate('200ms ease-out', style({ opacity: 0 }))])
+    ])
+  ]
 
 })
 export class PlayersRegisterComponent implements OnInit, DoCheck {
@@ -19,10 +27,13 @@ export class PlayersRegisterComponent implements OnInit, DoCheck {
   users: User[]
   btnDisabled: boolean[] = []
   activeTournament: boolean = false
+  noUsers: boolean = false
 
   usersIndex: number = 0
   usersLength: number = 10
   sortUser: string = '0'
+
+  maxPlayers: boolean = false
 
   paginatorChange(page: PageEvent) {
     this.usersIndex = page.pageIndex * page.pageSize
@@ -36,6 +47,7 @@ export class PlayersRegisterComponent implements OnInit, DoCheck {
       localId: regUser.localId,
       firstName: regUser.firstName,
       lastName: regUser.lastName,
+      points: 0
     }
     this.playersService.registerPlayer(player).subscribe(
       () => {
@@ -74,35 +86,45 @@ export class PlayersRegisterComponent implements OnInit, DoCheck {
     )
   }
 
-  constructor(private playersService: PlayersService, private profileService: ProfileService) { }
+  constructor(private playersService: PlayersService, private profileService: ProfileService, private tournamentService: TournamentService) { }
 
   ngOnInit() {
-    this.playersService.isTournament().subscribe(
-      (res: Array<{ [key: string]: boolean }>) => {
-        this.activeTournament = res.reduce(el => { return el }).active
+    this.tournamentService.isTournament().subscribe(
+      (res) => {
+        if (res) {
+          this.activeTournament = res.active
+        } else {
+          this.activeTournament = false
+        }
       }
     )
-
+      
     this.profileService.getRegisteredUser().subscribe(
       (users) => {
         if (users[0] !== undefined || users.length > 1) {
           this.originUsers = users
-          this.originUsers.map(el => this.btnDisabled.push(false))
+          this.originUsers.map(() => this.btnDisabled.push(false))
+        } else {
+          this.noUsers = true
         }
       }
     )
   }
   ngDoCheck() {
     if (this.originUsers) {
-      this.users = this.originUsers.filter(user => {
-        if (this.sortUser === '0' && user.status !== 'unregistered') {
-          return user
-        } else if (this.sortUser === '1') {
-          return user.status === 'pending'
-        } else if (this.sortUser === '2') {
-          return user.status === 'registered'
-        }
-      });
+      this.users = [...this.originUsers]
+      if (this.users.filter(el => el.status !== 'unregistered').length === 0) {
+        this.noUsers = true
+      } else {
+        this.noUsers = false
+      }
+      if (this.sortUser === '0') {
+        this.users = this.users.filter(user => user.status !== 'unregistered')
+      } else if (this.sortUser === '1') {
+        this.users = this.users.filter(user => user.status === 'pending')
+      } else if (this.sortUser === '2') {
+        this.users = this.users.filter(user => user.status === 'registered')
+      }
     }
   }
 }

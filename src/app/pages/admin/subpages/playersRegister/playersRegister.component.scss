@@ -1,20 +1,33 @@
 @import "src/assets/colors";
-mat-radio-button{
+.maxUsers {
+  color: $warnColor;
+  text-align: center;
+}
+.container {
+  max-width: 100vw;
+}
+mat-radio-button {
   margin-right: 0.4rem;
 }
+.options {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+}
 .users {
-  width: 100%;
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 380px));
   grid-gap: 20px;
   justify-content: center;
+  .user {
+    margin: 1rem auto;
+    max-width: 300px;
+  }
 }
-.margin {
-  height: 284px;
-  padding: 1rem;
-  overflow: hidden;
-}
+
 mat-card-actions {
   margin: 0 0.5rem;
   display: flex;

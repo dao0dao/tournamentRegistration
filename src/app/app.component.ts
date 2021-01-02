@@ -1,7 +1,8 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationService } from 'src/app/services/authorization.service';
+import { TournamentService } from './services/tournament.service';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,15 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
     ])
   ]
 })
-export class AppComponent implements DoCheck {
+export class AppComponent implements OnInit, DoCheck {
 
   showTitle: boolean = false
 
-  constructor(public autService: AuthorizationService, private router: Router) { }
+  constructor(public autService: AuthorizationService, private router: Router, protected tournamentService: TournamentService) { }
+
+  ngOnInit() {
+  }
+
   ngDoCheck() {
     if (this.router.url !== '/') { this.showTitle = true } else { this.showTitle = false }
   }

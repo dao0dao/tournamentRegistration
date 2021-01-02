@@ -21,27 +21,30 @@ export class ProfileComponent implements OnInit {
 
   user: User = undefined
   isOpenModal: boolean = false
+  disableSend: boolean = false
 
   sendRequest() {
+    this.disableSend = true
     let newUser = Object.assign({}, this.user)
     newUser.status = 'pending'
     this.profileService.patch(newUser).subscribe(
       (res) => {
         this.user.status = res.status
-      }
+        this.disableSend = false
+      }, () => { this.disableSend = false }, () => { this.disableSend = false }
     )
   }
 
-  deleteUser(){
+  deleteUser() {
     this.profileService.deleteUser(this.user, this.autService.token).subscribe(
-      ()=>{
+      () => {
         this.autService.logout()
         this.infoService.toggler(true, 'Konto zostało usunięte')
       }
     )
   }
 
-  constructor(private profileService: ProfileService, private autService: AuthorizationService, public router: Router, private infoService : InfoService) { }
+  constructor(private profileService: ProfileService, private autService: AuthorizationService, public router: Router, private infoService: InfoService) { }
 
   ngOnInit() {
     this.profileService.getUserData(this.autService.token).subscribe(

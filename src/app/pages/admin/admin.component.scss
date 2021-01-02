@@ -1,18 +1,27 @@
 @import "src/assets/colors";
-.links a {
-    display: inline-block;
-    margin: 0 0.2rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    color: $whiteColor;
-    background-color: $greyColor;
-    transition: 0.25s ease-in-out;
-    &:hover {
-        background-color: $primaryVariantColor;
-    }
-    &.active {
-        background-color: $secondaryColor;
-        cursor: default;
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    a {
+        margin: 0.3rem 0.2rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid $greyColor;
+        text-decoration: none;
+        color: $blackColor;
+        transition: 0.25s ease-in-out;
+        &:hover {
+            color: $whiteColor;
+            background-color: $primaryVariantColor;
+            border-color: transparent;
+        }
+        &.active {
+            color: $whiteColor;
+            background-color: $secondaryColor;
+            border-color: transparent;
+            cursor: default;
+        }
     }
 }

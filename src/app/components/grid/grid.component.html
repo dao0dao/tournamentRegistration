@@ -6,7 +6,7 @@
                 readonly
                 [value]="playerOne? playerOne.firstName + ' ' + playerOne.lastName : ''">
             <button
-                [disabled]="playerOne ? (!playerOne.canCancel) : true"
+                [disabled]="(playerOne ? (!playerOne.canCancel) : true) || !activeTournament"
                 mat-button
                 matSuffix
                 mat-icon-button
@@ -15,9 +15,9 @@
             </button>
         </mat-form-field>
         <button
-            [disabled]="!playerOne || playerOne.isPlayed"
+            [disabled]="(!playerOne || playerOne.isPlayed) || !activeTournament"
             mat-mini-fab
-            (click)="result(playerOne, playerTwo)">
+            (click)="result(playerOne,playerOne, playerTwo)">
             <mat-icon>keyboard_arrow_right</mat-icon>
         </button>
     </div>
@@ -31,15 +31,15 @@
                 mat-button
                 matSuffix
                 mat-icon-button
-                [disabled]="playerTwo ? (!playerTwo.canCancel) : true"
+                [disabled]="(playerTwo ? (!playerTwo.canCancel) : true) || !activeTournament"
                 (click)="cancelWin(playerTwo)">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
         <button
             mat-mini-fab
-            [disabled]="!playerTwo || playerTwo.isPlayed"
-            (click)="result(playerTwo, playerOne)">
+            [disabled]="(!playerTwo || playerTwo.isPlayed) || !activeTournament"
+            (click)="result(playerTwo, playerOne, playerTwo)">
             <mat-icon>keyboard_arrow_right</mat-icon>
         </button>
     </div>
