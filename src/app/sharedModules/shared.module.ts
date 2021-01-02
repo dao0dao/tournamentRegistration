@@ -1,4 +1,5 @@
 import { NgModule, Provider } from '@angular/core';
+import { CommonModule } from '@angular/common'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -29,6 +30,7 @@ const INTERCEPT_PROVIDER: Provider = {
         GridComponent
     ],
     imports: [
+        CommonModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,

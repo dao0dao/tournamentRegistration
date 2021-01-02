@@ -12,6 +12,8 @@ import { IsLoggedGuard } from './guards/isLogged.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { NotAdminGuard } from './guards/not-admin.guard'
 import { ScoreboardComponent } from './pages/scoreboard/scoreboard.component';
+import { LadderComponent } from './pages/ladder/ladder.component';
+import { ContestantsComponent } from './pages/contestants/contestants.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
   { path: 'profile/update', component: UpdateProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
   { path: 'scoreboard', component: ScoreboardComponent, canActivate: [IsLoggedGuard] },
+  { path: 'contestants', component: ContestantsComponent, canActivate: [IsLoggedGuard] },
+  { path: 'ladder', component: LadderComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },
   { path: 'admin', loadChildren: './pages/admin/admin.module#AdminModule', canActivate: [AdminGuard, IsLoggedGuard] },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: '/error' }

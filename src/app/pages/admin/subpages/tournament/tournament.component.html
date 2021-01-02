@@ -43,34 +43,42 @@
             <app-grid
                 [playerOne]="getContestant(16, 1)"
                 [playerTwo]="getContestant(16, 2)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 3)"
                 [playerTwo]="getContestant(16, 4)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 5)"
                 [playerTwo]="getContestant(16, 6)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 7)"
                 [playerTwo]="getContestant(16, 8)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 9)"
                 [playerTwo]="getContestant(16, 10)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 11)"
                 [playerTwo]="getContestant(16, 12)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 13)"
                 [playerTwo]="getContestant(16, 14)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(16, 15)"
                 [playerTwo]="getContestant(16, 16)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
         </div>
         <div
@@ -83,18 +91,22 @@
             <app-grid
                 [playerOne]="getContestant(8, 1)"
                 [playerTwo]="getContestant(8, 2)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(8, 3)"
                 [playerTwo]="getContestant(8, 4)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(8, 5)"
                 [playerTwo]="getContestant(8, 6)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(8, 7)"
                 [playerTwo]="getContestant(8, 8)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
         </div>
         <div
@@ -105,12 +117,14 @@
                 <span>półfinał</span>
             </h3>
             <app-grid
-                [playerOne]="getContestant(4, 1) "
+                [playerOne]="getContestant(4, 1)"
                 [playerTwo]="getContestant(4, 2)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
             <app-grid
                 [playerOne]="getContestant(4, 3)"
                 [playerTwo]="getContestant(4, 4)"
+                [canEdit]="true"
                 (winner)="winner($event)"></app-grid>
         </div>
         <div class="round">
@@ -121,6 +135,7 @@
             <app-grid
                 [playerOne]="getContestant(2, 1)"
                 [playerTwo]="getContestant(2, 2)"
+                [canEdit]="true"
                 (cancel)="cancelWin($event)"
                 (winner)="winner($event)"></app-grid>
         </div>

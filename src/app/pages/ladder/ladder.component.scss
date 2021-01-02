@@ -1,0 +1,25 @@
+@import 'src/assets/colors';
+
+.ladder {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .round_title {
+        margin: 1rem 0 0;
+        text-align: center;
+        span{
+            color: $warnColor;
+        }
+    }
+}
+.round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.winner {
+    margin: 0;
+}

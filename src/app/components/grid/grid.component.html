@@ -6,6 +6,7 @@
                 readonly
                 [value]="playerOne? playerOne.firstName + ' ' + playerOne.lastName : ''">
             <button
+                *ngIf="canEdit"
                 [disabled]="(playerOne ? (!playerOne.canCancel) : true) || !activeTournament"
                 mat-button
                 matSuffix
@@ -15,6 +16,7 @@
             </button>
         </mat-form-field>
         <button
+            *ngIf="canEdit"
             [disabled]="(!playerOne || playerOne.isPlayed) || !activeTournament"
             mat-mini-fab
             (click)="result(playerOne,playerOne, playerTwo)">
@@ -28,6 +30,7 @@
                 readonly
                 [value]="playerTwo ? playerTwo.firstName + ' ' + playerTwo.lastName : ''">
             <button
+                *ngIf="canEdit"
                 mat-button
                 matSuffix
                 mat-icon-button
@@ -37,6 +40,7 @@
             </button>
         </mat-form-field>
         <button
+            *ngIf="canEdit"
             mat-mini-fab
             [disabled]="(!playerTwo || playerTwo.isPlayed) || !activeTournament"
             (click)="result(playerTwo, playerOne, playerTwo)">

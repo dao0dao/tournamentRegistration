@@ -54,6 +54,20 @@
                         Wyniki
                     </a>
                     <a
+                        *ngIf="autService.token && !autService.uid"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/contestants']">
+                        Lista graczy
+                    </a>
+                    <a
+                        *ngIf="autService.token && !autService.uid"
+                        routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/ladder']">
+                        Drabinka
+                    </a>
+                    <a
                         *ngIf="autService.token && autService.uid"
                         routerLinkActive="active"
                         mat-list-item
@@ -107,12 +121,26 @@
                     Profil
                 </a>
                 <a
-                        *ngIf="autService.token"
-                        routerLinkActive="active"
-                        mat-list-item
-                        [routerLink]="['/scoreboard']">
-                        Wyniki
-                    </a>
+                    *ngIf="autService.token && !autService.uid"
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/contestants']">
+                    Lista graczy
+                </a>
+                <a
+                    *ngIf="autService.token && !autService.uid"
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/ladder']">
+                    Drabinka
+                </a>
+                <a
+                    *ngIf="autService.token"
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/scoreboard']">
+                    Wyniki
+                </a>
                 <a
                     *ngIf="autService.token && autService.uid"
                     routerLinkActive="active"

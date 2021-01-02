@@ -125,6 +125,7 @@ export class TournamentComponent implements OnInit, DoCheck {
         this.activeTournament = false
         this.contestants = undefined
         this.registerPlayers = undefined
+        this.noPlayers = true
         this.registerUsers.filter((user) => { user.status = 'pending' })
         this.registerUsers.forEach((user) => { this.profileService.patch(user).subscribe() })
       }

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, DoBootstrap, DoCheck } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, DoCheck } from '@angular/core';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 import { TournamentService } from 'src/app/services/tournament.service';
 import { Player } from 'src/interface/interface';
 
@@ -13,6 +14,7 @@ export class GridComponent implements OnInit, DoCheck {
   @Input('playerTwo') playerTwo: Player
   @Output() winner = new EventEmitter<Player>()
   @Output() cancel = new EventEmitter<Player>()
+  @Input('canEdit') canEdit: boolean = false
 
   activeTournament: boolean = false
 
@@ -30,7 +32,7 @@ export class GridComponent implements OnInit, DoCheck {
     this.cancel.emit(player)
   }
 
-  constructor(private tournamentService: TournamentService) { }
+  constructor(private tournamentService: TournamentService, public autService: AuthorizationService) { }
 
   ngOnInit() {
 

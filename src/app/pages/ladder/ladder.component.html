@@ -1,0 +1,103 @@
+<div class="container">
+    <div
+        class="container spinner"
+        *ngIf="!contestants && !noPlayers">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div
+        class="container spinner"
+        *ngIf="noPlayers">
+        <h3>Brak rozgrywek</h3>
+    </div>
+    <div
+        class="ladder"
+        *ngIf="contestants">
+        <div
+            class="round"
+            *ngIf="round === 16">
+            <h3 class="round_title">
+                Runda
+                <span>1/8</span>
+            </h3>
+            <app-grid
+                [playerOne]="getContestant(16, 1)"
+                [playerTwo]="getContestant(16, 2)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 3)"
+                [playerTwo]="getContestant(16, 4)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 5)"
+                [playerTwo]="getContestant(16, 6)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 7)"
+                [playerTwo]="getContestant(16, 8)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 9)"
+                [playerTwo]="getContestant(16, 10)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 11)"
+                [playerTwo]="getContestant(16, 12)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 13)"
+                [playerTwo]="getContestant(16, 14)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(16, 15)"
+                [playerTwo]="getContestant(16, 16)"></app-grid>
+        </div>
+        <div
+            class="round"
+            *ngIf="round >= 8">
+            <h3 class="round_title">
+                Runda:
+                <span>ćwierćfinał</span>
+            </h3>
+            <app-grid
+                [playerOne]="getContestant(8, 1)"
+                [playerTwo]="getContestant(8, 2)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(8, 3)"
+                [playerTwo]="getContestant(8, 4)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(8, 5)"
+                [playerTwo]="getContestant(8, 6)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(8, 7)"
+                [playerTwo]="getContestant(8, 8)"></app-grid>
+        </div>
+        <div
+            class="round"
+            *ngIf="round >= 4">
+            <h3 class="round_title">
+                Runda:
+                <span>półfinał</span>
+            </h3>
+            <app-grid
+                [playerOne]="getContestant(4, 1) "
+                [playerTwo]="getContestant(4, 2)"></app-grid>
+            <app-grid
+                [playerOne]="getContestant(4, 3)"
+                [playerTwo]="getContestant(4, 4)"></app-grid>
+        </div>
+        <div class="round">
+            <h3 class="round_title">
+                Runda:
+                <span>finał</span>
+            </h3>
+            <app-grid
+                [playerOne]="getContestant(2, 1)"
+                [playerTwo]="getContestant(2, 2)"></app-grid>
+        </div>
+        <div class="round">
+            <h3 class="round_title">
+                <span>Zwycięzca:</span>
+            </h3>
+            <mat-form-field>
+                <input
+                    type="text"
+                    matInput
+                    readonly
+                    [value]="getContestant(1, 1) ? (getContestant(1,1).firstName + ' ' + getContestant(1,1).lastName): ''">
+            </mat-form-field>
+        </div>
+    </div>
+</div>

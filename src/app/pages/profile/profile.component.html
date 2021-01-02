@@ -15,7 +15,7 @@
     </p>
     <div class="actions container">
         <button
-            class="btn btn--regist btn--lenght"
+            class="btn btn--regist"
             mat-raised-button
             [disabled]="(user.status !== 'unregistered')"
             (click)="sendRequest()">
@@ -23,13 +23,22 @@
         </button>
         <button
             mat-raised-button
-            class="btn--lenght">
+            class="btn"
+            color="primary"
+            (click)="router.navigate(['/contestants'])">
             Lista graczy
+        </button>
+        <button
+            mat-raised-button
+            class="btn"
+            color="accent"
+            (click)="router.navigate(['/ladder'])">
+            Drabinka
         </button>
     </div>
     <div class="actions actions--secondary container">
         <button
-            class="btn btn--result btn--lenght"
+            class="btn btn--result"
             mat-button
             (click)="router.navigate(['/scoreboard'])">
             Wyniki turniejów
