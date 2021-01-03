@@ -1,4 +1,5 @@
 <div class="container">
+    <h2>Drabinka</h2>
     <div
         class="container spinner"
         *ngIf="!contestants && !noPlayers">
@@ -96,7 +97,7 @@
                     type="text"
                     matInput
                     readonly
-                    [value]="getContestant(1, 1) ? (getContestant(1,1).firstName + ' ' + getContestant(1,1).lastName): ''">
+                    [value]="getContestant(1, 1) ? ((getContestant(1,1).firstName + ' ' + getContestant(1,1).lastName)|shortFullName): ''">
             </mat-form-field>
         </div>
     </div>

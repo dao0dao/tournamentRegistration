@@ -13,7 +13,6 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
 import { AdminModule } from './pages/admin/admin.module'
-import { PipesModule } from './pipes/pipes.module'
 import { SharedModule } from './sharedModules/shared.module';
 import { ScoreboardComponent } from './pages/scoreboard/scoreboard.component';
 import { LadderComponent } from './pages/ladder/ladder.component';
@@ -42,7 +41,6 @@ import { ContestantsComponent } from './pages/contestants/contestants.component'
     BrowserAnimationsModule,
     SharedModule,
     AdminModule,
-    PipesModule
   ],
   exports: [],
   providers: [],

@@ -4,6 +4,10 @@ import { SortUsersPipe } from './sort-users.pipe';
 import { ToNumberPipe } from './to-number.pipe';
 import { ShortNamePipe } from './short-name.pipe';
 import { ShortLastPipe } from './short-last.pipe';
+import { PlacePipe } from './place.pipe';
+import { ShortFullNamePipe } from './short-full-name.pipe';
+
+
 
 @NgModule({
     declarations: [
@@ -11,14 +15,19 @@ import { ShortLastPipe } from './short-last.pipe';
         SortUsersPipe,
         ToNumberPipe,
         ShortNamePipe,
-        ShortLastPipe
+        ShortLastPipe,
+        PlacePipe,
+        ShortFullNamePipe,
+
     ],
     exports: [
         StatusPipe,
         SortUsersPipe,
         ToNumberPipe,
         ShortNamePipe,
-        ShortLastPipe
+        ShortLastPipe,
+        PlacePipe,
+        ShortFullNamePipe,
     ]
 })
 

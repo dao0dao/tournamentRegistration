@@ -4,7 +4,7 @@
             <input
                 matInput
                 readonly
-                [value]="playerOne? playerOne.firstName + ' ' + playerOne.lastName : ''">
+                [value]="playerOne? ((playerOne.firstName + ' ' + playerOne.lastName) |shortFullName) : ''">
             <button
                 *ngIf="canEdit"
                 [disabled]="(playerOne ? (!playerOne.canCancel) : true) || !activeTournament"
@@ -28,7 +28,7 @@
             <input
                 matInput
                 readonly
-                [value]="playerTwo ? playerTwo.firstName + ' ' + playerTwo.lastName : ''">
+                [value]="playerTwo ? ((playerTwo.firstName + ' ' + playerTwo.lastName)|shortFullName) : ''">
             <button
                 *ngIf="canEdit"
                 mat-button

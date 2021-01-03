@@ -65,13 +65,11 @@ export class PlayersRegisterComponent implements OnInit, DoCheck {
     )
   }
 
-  unregister(user: User, index: number) {
-    let unUser = Object.assign({}, user)
-    unUser.status = "unregistered"
-    this.profileService.patch(unUser).pipe(
+  unregister(user: User) {
+    user.status = "unregistered"
+    this.profileService.patch(user).pipe(
       map(
         (res) => {
-          user.status = res.status
           this.playersService.unregister(res).subscribe()
         }
       )

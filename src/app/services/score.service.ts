@@ -14,10 +14,18 @@ export class ScoreService {
     return this.http.get<TournamentResult[]>(`${environment.fbUrlDatabase}tournament/results.json`).pipe(
       map(
         (res) => {
-          return Object.values(res)
+          if(res){
+            return Object.values(res)
+          } else {
+            return undefined
+          }
         }
       )
     )
+  }
+
+  clearResult(): Observable<any>{
+    return this.http.delete<any>(`${environment.fbUrlDatabase}tournament/results.json`)
   }
 
   constructor(private http: HttpClient) { }

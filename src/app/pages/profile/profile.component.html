@@ -52,7 +52,7 @@
         <button
             mat-button
             color="warn"
-            [disabled]="user.status !== 'unregister'"
+            [disabled]="!(user.status !== 'unregister')"
             (click)="isOpenModal = true">
             Usuń konto
         </button>

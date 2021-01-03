@@ -25,9 +25,8 @@ export class ProfileComponent implements OnInit {
 
   sendRequest() {
     this.disableSend = true
-    let newUser = Object.assign({}, this.user)
-    newUser.status = 'pending'
-    this.profileService.patch(newUser).subscribe(
+    this.user.status = 'pending'
+    this.profileService.patch(this.user).subscribe(
       (res) => {
         this.user.status = res.status
         this.disableSend = false

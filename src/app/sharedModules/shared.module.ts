@@ -1,5 +1,5 @@
 import { NgModule, Provider } from '@angular/core';
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,7 +17,8 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { CustomMatPaginatorIntl } from 'src/app/components/matDirectives/matDirectives';
 import { MatRadioModule } from '@angular/material/radio';
 
-import { GridComponent } from 'src/app/components/grid/grid.component'
+import { GridComponent } from 'src/app/components/grid/grid.component';
+import {PipesModule} from 'src/app/pipes/pipes.module';
 
 const INTERCEPT_PROVIDER: Provider = {
     provide: HTTP_INTERCEPTORS,
@@ -32,6 +33,7 @@ const INTERCEPT_PROVIDER: Provider = {
     imports: [
         CommonModule,
         FormsModule,
+        PipesModule,
         ReactiveFormsModule,
         HttpClientModule,
         MatButtonModule,
@@ -48,6 +50,7 @@ const INTERCEPT_PROVIDER: Provider = {
     exports: [
         FormsModule,
         ReactiveFormsModule,
+        PipesModule,
         HttpClientModule,
         MatButtonModule,
         MatListModule,

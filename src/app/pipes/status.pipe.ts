@@ -14,7 +14,7 @@ export class StatusPipe implements PipeTransform {
         result = 'oczekuje potwierdzenia'
         break;
       case "unregistered":
-        result = 'nie zarejestrowany'
+        result = 'niezarejestrowany'
         break;
       case "registered":
         result = 'zarejestrowany'

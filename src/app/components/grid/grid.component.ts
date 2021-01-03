@@ -16,6 +16,7 @@ export class GridComponent implements OnInit, DoCheck {
   @Output() cancel = new EventEmitter<Player>()
   @Input('canEdit') canEdit: boolean = false
 
+
   activeTournament: boolean = false
 
   result(playerWin: Player, playerOne?: Player, playerTwo?: Player) {

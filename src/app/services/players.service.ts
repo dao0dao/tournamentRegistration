@@ -27,7 +27,7 @@ export class PlayersService {
 
   unregister(user: User): Observable<any> {
     return this.getContestants().pipe(
-      map(players => {
+      map((players) => {
         let player: Player
         players.map(el => { if (el.localId === user.localId) { player = el } })
         this.http.delete(`${environment.fbUrlDatabase}tournament/players/${player.id}.json`).subscribe()

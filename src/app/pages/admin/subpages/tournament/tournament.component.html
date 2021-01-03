@@ -1,4 +1,6 @@
-<div class="container spinner" *ngIf="noPlayers">
+<div
+    class="container spinner"
+    *ngIf="noPlayers">
     <h3>Brak zarejestrowanych graczy!</h3>
 </div>
 <div
@@ -148,7 +150,7 @@
                     type="text"
                     matInput
                     readonly
-                    [value]="getTournamentWinner()?(getTournamentWinner().firstName + ' ' + getTournamentWinner().lastName) : ''">
+                    [value]="getTournamentWinner()?((getTournamentWinner().firstName + ' ' + getTournamentWinner().lastName)|shortFullName) : ''">
                 <button
                     mat-button
                     mat-icon-button

@@ -6,7 +6,6 @@ import { AdminComponent } from './admin.component';
 import { PlayersRegisterComponent } from './subpages/playersRegister/playersRegister.component';
 
 import { SharedModule } from 'src/app/sharedModules/shared.module'
-import { PipesModule } from 'src/app/pipes/pipes.module';
 import { PlayersComponent } from './subpages/players/players.component';
 import { TournamentComponent } from './subpages/tournament/tournament.component';
 
@@ -21,7 +20,6 @@ import { TournamentComponent } from './subpages/tournament/tournament.component'
     ],
     imports: [
         CommonModule,
-        PipesModule,
         SharedModule,
         RouterModule.forChild([
             {
