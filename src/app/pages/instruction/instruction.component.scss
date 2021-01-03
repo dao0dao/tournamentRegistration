@@ -1,0 +1,14 @@
+@import "src/assets/colors";
+
+mat-list-item {
+    margin: 1.5rem 0;
+}
+.mat-list-icon {
+    margin-right: 0.5rem;
+}
+p {
+    text-align: justify;
+}
+span {
+    color: $primaryVariantColor;
+}

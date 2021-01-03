@@ -20,6 +20,12 @@
                 <mat-nav-list>
                     <a
                         routerLinkActive="active"
+                        mat-list-item
+                        [routerLink]="['/instruction']">
+                        Obsługa
+                    </a>
+                    <a
+                        routerLinkActive="active"
                         [routerLinkActiveOptions]="{exact : true}"
                         mat-list-item
                         [routerLink]="['/']">
@@ -92,6 +98,12 @@
                 I Toruński Otwarty Turniej GO
             </p>
             <mat-nav-list>
+                <a
+                    routerLinkActive="active"
+                    mat-list-item
+                    [routerLink]="['/instruction']">
+                    Obsługa
+                </a>
                 <a
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact : true}"

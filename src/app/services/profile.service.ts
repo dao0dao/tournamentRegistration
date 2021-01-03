@@ -10,7 +10,7 @@ import { FbResPost, FbResUserData, User } from 'src/interface/interface';
 })
 export class ProfileService {
 
-  
+
 
   getUserData(idToken: string): Observable<FbResUserData> {
     return this.http.post<FbResUserData>(`${environment.fbUrlGetUserData}${environment.apiKey}`, { 'idToken': idToken })
@@ -54,11 +54,10 @@ export class ProfileService {
   }
 
   postUser(user: User): Observable<any> {
-    let newUser: User = Object.assign({}, user)
-    return this.http.post<FbResPost>(`${environment.fbUrlDatabase}tournament/users.json`, newUser).pipe(
+    return this.http.post<FbResPost>(`${environment.fbUrlDatabase}tournament/users.json`, user).pipe(
       map(res => {
-        newUser.id = res.name
-        return this.patch(newUser).subscribe()
+        user.id = res.name
+        this.patch(user).subscribe()
       })
     )
   }

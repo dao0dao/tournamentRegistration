@@ -14,10 +14,12 @@ import { NotAdminGuard } from './guards/not-admin.guard'
 import { ScoreboardComponent } from './pages/scoreboard/scoreboard.component';
 import { LadderComponent } from './pages/ladder/ladder.component';
 import { ContestantsComponent } from './pages/contestants/contestants.component';
+import { InstructionComponent } from './pages/instruction/instruction.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'instruction', component: InstructionComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [IsLoggedGuard, NotAdminGuard] },

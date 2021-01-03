@@ -17,6 +17,7 @@ import { SharedModule } from './sharedModules/shared.module';
 import { ScoreboardComponent } from './pages/scoreboard/scoreboard.component';
 import { LadderComponent } from './pages/ladder/ladder.component';
 import { ContestantsComponent } from './pages/contestants/contestants.component';
+import { InstructionComponent } from './pages/instruction/instruction.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ContestantsComponent } from './pages/contestants/contestants.component'
     ScoreboardComponent,
     LadderComponent,
     ContestantsComponent,
+    InstructionComponent,
     
 
   ],
