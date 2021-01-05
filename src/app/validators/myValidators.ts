@@ -29,5 +29,15 @@ export class MyValidators {
             return false
         }
     }
+    static notWord(control: FormControl): { [key: string]: boolean } | false {
+        const regExp = /[^A-za-z-]+/g
+        if (!control || !control.value) {
+            return false
+        } else if (regExp.test(control.value.toString())) {
+            return { notWord: true }
+        } else {
+            return false
+        }
+    }
 
 }

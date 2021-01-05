@@ -15,6 +15,7 @@
             <mat-icon matSuffix>create</mat-icon>
             <mat-hint align="end">{{first.value.length}}/15</mat-hint>
             <mat-error *ngIf="firstName.errors?.required">Wymagane pole</mat-error>
+            <mat-error *ngIf="firstName.errors?.notWord">Tylko litery</mat-error>
             <mat-error *ngIf="firstName.errors?.startsWithSpace">Bez spacji na początku</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -28,6 +29,7 @@
             <mat-icon matSuffix>create</mat-icon>
             <mat-hint align="end">{{last.value.length}}/30</mat-hint>
             <mat-error *ngIf="lastName.errors?.required">Wymagane pole</mat-error>
+            <mat-error *ngIf="lastName.errors?.notWord">Tylko litery</mat-error>
             <mat-error *ngIf="lastName.errors?.startsWithSpace">Bez spacji na początku</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">

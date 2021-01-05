@@ -89,8 +89,8 @@ export class UpdateProfileComponent implements OnInit {
 
   ngOnInit() {
     this.userForm = this.fb.group({
-      firstName: ['', [MyValidators.startsWithSpace, MyValidators.required, Validators.maxLength(15)]],
-      lastName: ['', [MyValidators.required, MyValidators.startsWithSpace, Validators.maxLength(30)]],
+      firstName: ['', [MyValidators.startsWithSpace, MyValidators.required, Validators.maxLength(15), MyValidators.notWord]],
+      lastName: ['', [MyValidators.required, MyValidators.startsWithSpace, Validators.maxLength(30), MyValidators.notWord]],
       email: [''],
       phone: ['', [MyValidators.phoneNumber]],
       status: [''],

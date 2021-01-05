@@ -19,6 +19,7 @@
                 required>
             <mat-hint align="end">{{first.value.length}}/15</mat-hint>
             <mat-error *ngIf="firstName.errors?.required && firstName.touched" >Wymagane pole</mat-error>
+            <mat-error *ngIf="firstName.errors?.notWord && firstName.touched" >Tylko litery</mat-error>
             <mat-error *ngIf="firstName.errors?.startsWithSpace && firstName.touched">Bez spacji na początku</mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -31,6 +32,7 @@
                 required>
             <mat-hint align="end">{{last.value.length}}/30</mat-hint>
             <mat-error *ngIf="lastName.errors?.required && lastName.touched">Wymagane pole</mat-error>
+            <mat-error *ngIf="lastName.errors?.notWord && lastName.touched">Tylko litery</mat-error>
             <mat-error *ngIf="lastName.errors?.startsWithSpace && lastName.touched">Bez spacji na początku</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
